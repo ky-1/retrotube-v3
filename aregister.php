@@ -38,6 +38,11 @@
                 </ul>
             </div>
             <?php
+                if(isset($_SESSION['profileuser3'])) {
+                    echo('<script>
+                         window.location.href = "index.php";
+                         </script>');
+                }
             if (!empty($_POST)){
                 //i should add captcha support lol but cloudfront breaks it
                 $sql = "SELECT `username` FROM `users` WHERE `username`='". htmlspecialchars($_POST['name']) ."'";

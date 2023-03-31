@@ -67,7 +67,7 @@ margin-left: -770px;
 			    $result = $statement->get_result();
 			    if($result->num_rows === 0) exit('No rows');
 			    while($row = $result->fetch_assoc()) {
-			        echo "<div class=\"menu-element\"><strong>Hi, <a href=\"./profile.php?id=".$row["id"]."\">".$row["username"]."</a></strong> | <a href=\"./account.php\">Account</a> | <a href=\"./#\">History</a> | <a href=\"./help.php\">Help</a> | <a href=\"./alogout.php\">Log Out</a> | <a href=\"./#\">Site: <img src='en.png'></img></a></div>";
+			        echo "<div class=\"menu-element\"><strong>Hello, <a href=\"./profile.php?id=".$row["id"]."\">".$row["username"]."</a></strong> | <a href=\"./account.php\">Account</a> | <a href=\"./#\">History</a> | <a href=\"./help.php\">Help</a> | <a href=\"./alogout.php\">Log Out</a> | <a href=\"./#\">Site: <img src='en.png'></img></a></div>";
 			    }
 			    $statement->close();
       }
@@ -85,9 +85,11 @@ margin-left: -770px;
 <div class="pobygo">
 <img class="pbg" src="poweredbygoogle.png" <="" div="">
 </div>
-	    <center><input class="test" type="text" placeholder=""> <select class="search-type" name="search_type">
+<form method="get" action="results.php">
+	    <center><input class="test" type="text" placeholder="" name="q"> <select class="search-type" name="search_type">
 						<option value="">Videos</option>
 						<option value="search_users">Channels</option>
-					</select> <button type="button">Search</button></center>
-	</div>
+					</select> <button type="submit">Search</button></center>
+	</form>
+</div>
 </header>

@@ -32,7 +32,7 @@
 <?php
 		    	 if(!$results)
 		    	 {
-		    		echo '<tr>No videos found.</tr>';
+		    		echo 'No videos found.';
 		    	 }
 		    	 else{
 		    	 	foreach($results as $key=>$value)

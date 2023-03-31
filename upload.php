@@ -42,6 +42,11 @@
         </div>
     </div>
     <?php
+    if(!isset($_SESSION['profileuser3'])) {
+        echo('<script>
+             window.location.href = "index.php";
+             </script>');
+    }
    if (isset($_POST['submit'])){
        if(!isset($_SESSION['profileuser3'])) {
            die("Login to upload videos...");
@@ -65,7 +70,7 @@
            ";
            $uploadOk = 0;
        }
-       if($imageFileType != "mp4") {
+       if($imageFileType != "mp4" && $imageFileType != "avi") {
            echo "
            <div class='alert-message error page-alert'>
            MP4 files only.

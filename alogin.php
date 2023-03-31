@@ -28,6 +28,11 @@
                         <div></div>
                         <div class="red">
                             <?php
+                                if(isset($_SESSION['profileuser3'])) {
+                                    echo('<script>
+                                         window.location.href = "index.php";
+                                         </script>');
+                                }
                                 if(!empty($_POST)){
                                     $username = htmlspecialchars($_POST['name']);
                                     $statement = $mysqli->prepare("SELECT `password` FROM `users` WHERE `username` = ? LIMIT 1");
