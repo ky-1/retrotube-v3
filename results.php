@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<?php include 'global.php';?>
+<head>
+	<link rel="stylesheet" type="text/css" href="./css/global.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+	<?php
+	include("header.php");
+    echo ("<h2>Search results for &quot;".$_GET["q"]."&quot;</h2>")
+	?>
+	<?php
+    $results = '';
+    $searchErr = '';
+    if(isset($_GET['q']))
+{
+	if(!empty($_GET['q']))
+	{
+		$search = $_GET['q'];
+		$stmt = $mysqli->prepare("select * from videos where videotitle like '%$search%' or description like '%$search%'");
+		$stmt->execute();
+		$results = $stmt->get_result();
+		
+	}
+	else
+	{
+		$searchErr = "You didn't put anything in the box.";
+	}
+   
+}
+?>
+<?php
+		    	 if(!$results)
+		    	 {
+		    		echo '<tr>No videos found.</tr>';
+		    	 }
+		    	 else{
+		    	 	foreach($results as $key=>$value)
+		    	 	{
+		    	 		?>
+                        <div class="video container-flex">
+                    <div class="col-1-3 video-thumbnail">
+                    <a href="watch.php?v=<?php echo $value['vid'];?>">
+                    <img src="content/thumb/<?php echo $value['thumb'];?>">
+                    </a>
+                    </div>
+                    <div class="col-1-3 video-title"><a href="watch.php?v=<?php echo $value['vid'];?>"><?php echo $value['videotitle'];?></a></div>
+                    <div class="col-1-3 video-info">
+                        <div>From: <a href="profile.php?username=<?php echo $value['author'];?>"><?php echo $value['author'];?></a></div>
+                        <div>Views: <span><?php echo $value['views'];?></span></div>
+                        <div>Likes: <span><?php echo $value['likes'];?></span></div>
+                    </div>
+                </div>
+                <hr>
+		    	 		
+		    	 		<?php
+		    	 	}
+		    	 	
+		    	 }
+		    	?>
+    <?php include("footer.php") ?>
+</body>
+<?php $mysqli->close();?>
