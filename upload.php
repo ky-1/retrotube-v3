@@ -81,11 +81,13 @@
            ";
        } else {
            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-               rename("$target_file", "content/video/$v_id.mp4");
-               $new_target_file = "content/video/$v_id.mp4";
+               rename("$target_file", "content/unprocessed/$v_id.mp4");
+               $new_target_file = "content/unprocessed/$v_id.mp4";
                $ffmpeg = "C:/ffmpeg.exe";
+               exec("$ffmpeg -i ".$new_target_file." -vf scale=480x360 -c:v libx264 -b:a 56k  -c:a aac -ar 22050 content/video/$v_id.mp4");
+               $processed_file = "content/video/$v_id.mp4";
                $target_thumb = "content/thumb/".$v_id.".jpg";
-               $thumbcmd = "$ffmpeg -i $new_target_file -vf \"thumbnail\" -frames:v 1 -s 120x70 $target_thumb";
+               $thumbcmd = "$ffmpeg -i $processed_file -vf \"thumbnail\" -frames:v 1 -s 120x70 $target_thumb";
                $video = $_POST['videotitle'];
                $user = $_SESSION['profileuser3'];
              //  $v_id = randstr(11);
