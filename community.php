@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php include("header.php");?>
-    <strong><h2>its not done yet</h2></strong>
+    <strong><h2>Soon</h2></strong>
     <hr>
 	<?php include("footer.php") ?>
 </body>

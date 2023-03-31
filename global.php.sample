@@ -33,4 +33,7 @@
 
 	// sets discord webhook
 	$webhook = "";
+
+    // ffmpeg executable location (REQUIRED)
+    $ffmpeg = "";
 ?>
