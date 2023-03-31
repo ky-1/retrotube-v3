@@ -10,6 +10,10 @@
     echo ("<h2>Search results for &quot;".$_GET["q"]."&quot;</h2>")
 	?>
 	<?php
+    if(($_GET['search_type'] == "search_users")) {
+        $query = $_GET['q'];
+        header("Location: results_users.php?q=$query"); 
+    }
     $results = '';
     $searchErr = '';
     if(isset($_GET['q']))

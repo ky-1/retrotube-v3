@@ -87,7 +87,7 @@ margin-left: -770px;
 </div>
 <form method="get" action="results.php">
 	    <center><input class="test" type="text" placeholder="" name="q"> <select class="search-type" name="search_type">
-						<option value="">Videos</option>
+						<option value="search_videos">Videos</option>
 						<option value="search_users">Channels</option>
 					</select> <button type="submit">Search</button></center>
 	</form>
