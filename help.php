@@ -19,6 +19,11 @@
 	Contact server: https://discord.gg/ku4nsBTnHt<br>
 	</p>
 	<hr>
+	<h2>Credits</h2>
+	<h4>Original site - <em>tyre</em></h4>
+	<h4>Current site - <em>kylarz</em></h4>
+	<h4>Q: What did you do to the site?</h4>
+	<p>A: I added ffmpeg to patched the uploader, added search, added randomized video strings, and patched some other vulnerabilities.
     <?php include("footer.php") ?>
 </body>
 <?php $mysqli->close();?>

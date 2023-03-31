@@ -17,10 +17,10 @@
 				    echo "
 				    <div class='user'>
 				    	<div class='user-info'>
-						    <div><a href='./profile.php?id=".$row['id']."'>".$row['username']."</a></div>
+						    <div><a href='./profile.php?user=".$row['username']."'>".$row['username']."</a></div>
 						    <div><span class='black'>".$row['subscribers']."</span> subscribers</div>
 					    </div>
-					    <div><a href='./profile.php?id=".$row["id"]."'><img class='user-picture' src='./pfp/".getUserPic($row["id"])."'></a></div>
+					    <div><a href='./profile.php?user=".$row["username"]."'><img class='user-picture' src='./pfp/".getUserPic($row["id"])."'></a></div>
 				    </div>
 				    <hr>";
 				}
@@ -35,7 +35,7 @@
 
 	<div class="col-1-3">
 	    <div class="card message">
-	    Viewing channels is still buggy. Report any bugs to the owner.
+	    Viewing channels may still be buggy. Report any bugs to the owner.
 	    </div>
 	</div>
 	</div>
