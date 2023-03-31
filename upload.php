@@ -91,7 +91,7 @@
                $video = $_POST['videotitle'];
                $user = $_SESSION['profileuser3'];
              //  $v_id = randstr(11);
-               $statement = $link->prepare("INSERT INTO videos (videotitle, vid, description, author, filename, thumb, date) VALUES (?, ?, ?, ?, ?, ?, now())");
+               $statement = $mysqli->prepare("INSERT INTO videos (videotitle, vid, description, author, filename, thumb, date) VALUES (?, ?, ?, ?, ?, ?, now())");
                $statement->bind_param("ssssss", $videotitle, $v_id, $description, $author, $filename, $thumb);
                $videotitle = htmlspecialchars($_POST['videotitle']);
                $description = str_replace(PHP_EOL, "<br>", htmlspecialchars($_POST['bio']));

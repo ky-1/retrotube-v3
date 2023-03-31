@@ -22,15 +22,12 @@
                             echo '
                             <div class="featured-video col-generic">
                                 <div class="video-thumbnail">
-                                    <a href="viewvideo.php?id=' . $row['id'] . '">
-                                        <video>
-                                            <source src="videos/' . $row['filename'] . '" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                         </video>
+                                    <a href="watch.php?v=' . $row['vid'] . '">
+                                            <img src="thumb/' . $row['thumb'] . '">
                                     </a>
                                 </div>
                                 <div class="featured-video-info">
-                                    <div class="video-title"><a href="viewvideo.php?id='.$row['id'].'">'.$row['videotitle'].'</a></div>
+                                    <div class="video-title"><a href="watch.php?id='.$row['id'].'">'.$row['videotitle'].'</a></div>
                                     <div class="video-author"><a href="profile.php?id='.$row['author'].'">'.$row['author'].'</a></div>
                                 </div>
                             </div>';
@@ -67,7 +64,7 @@
                         }
                     } 
                 }
-                $statement = $mysqli->prepare("SELECT * FROM videos ORDER BY views DESC");
+                $statement = $mysqli->prepare("SELECT * FROM videos ORDER BY date DESC");
                 //$statement->bind_param("s", $_POST['fr']); i have no idea what this is but we don't need it
                 $statement->execute();
                 $result = $statement->get_result();
@@ -76,16 +73,13 @@
                         echo '
                             <div class="video container-flex">
                                 <div class="col-1-3 video-thumbnail">
-                                <a href="viewvideo.php?id='.$row['id'].'">
-                                    <video>
-                                        <source src="videos/'.$row['filename'].'" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video> 
+                                <a href="watch.php?v='.$row['vid'].'">
+                                <img src="content/thumb/' . $row['thumb'] . '">
                                 </a>
                                 </div>
-                                <div class="col-1-3 video-title"><a href="viewvideo.php?id='.$row['id'].'">'.$row['videotitle'].'</a></div>
+                                <div class="col-1-3 video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
                                 <div class="col-1-3 video-info">
-                                    <div>From: <a href="profile.php?id='.$row['author'].'">'.$row['author'].'</a></div>
+                                    <div>From: <a href="profile.php?username='.$row['author'].'">'.$row['author'].'</a></div>
                                     <div>Views: <span>'.$row['views'].'</span></div>
                                     <div>Likes: <span>'.$row['likes'].'</span></div>
                                 </div>

@@ -26,12 +26,12 @@
         top: 0px;
         left: 0px;
     ">
-    <video id="video-stream" src="../videos/
+    <video id="video-stream" src="../content/video/
 <?php
 
 
-$stmt = $mysqli->prepare("SELECT * FROM videos WHERE id = ?");
-$stmt->bind_param("s", $_GET['id']);
+$stmt = $mysqli->prepare("SELECT * FROM videos WHERE vid = ?");
+$stmt->bind_param("s", $_GET['v']);
 $stmt->execute();
 $result = $stmt->get_result();
 if($result->num_rows === 0) exit('No rows');

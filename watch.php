@@ -20,15 +20,15 @@ error_reporting(E_ALL);
     <?php
 
 
-        $stmt = $mysqli->prepare("SELECT * FROM videos WHERE id = ?");
-        $stmt->bind_param("s", $_GET['id']);
+        $stmt = $mysqli->prepare("SELECT * FROM videos WHERE vid = ?");
+        $stmt->bind_param("s", $_GET['v']);
         $stmt->execute();
         $result = $stmt->get_result();
         if($result->num_rows === 0) exit('No rows');
         while($row = $result->fetch_assoc()) {
             echo '
             <h2>' . $row['videotitle'] . '</h2>
-            <iframe id="vid-player" style="border: 0px; overflow: hidden;" src="player/lolplayer.php?id=' . $_GET['id'] . '" height="360px" width="480px"></iframe> <br><br>
+            <iframe id="vid-player" style="border: 0px; overflow: hidden;" src="player/lolplayer.php?v=' . $_GET['v'] . '" height="360px" width="480px"></iframe> <br><br>
                 <script>
                     var vid = document.getElementById(\'vid-player\').contentWindow.document.getElementById(\'video-stream\');
                     function hmsToSecondsOnly(str) {
@@ -51,7 +51,7 @@ error_reporting(E_ALL);
                 </script>';
 
             $videoembed = '\
-            <iframe id="vid-player" style="border: 0px; overflow: hidden;" src="player/lolplayer.php?id=' . $_GET['id'] . '" height="360px" width="480px"></iframe> <br><br>
+            <iframe id="vid-player" style="border: 0px; overflow: hidden;" src="player/lolplayer.php?v=' . $_GET['v'] . '" height="360px" width="480px"></iframe> <br><br>
             <script>
                 var vid = document.getElementById(\'vid-player\').contentWindow.document.getElementById(\'video-stream\');
                 function hmsToSecondsOnly(str) {
@@ -72,15 +72,15 @@ error_reporting(E_ALL);
                     document.getElementById(\'vid-player\').contentWindow.document.getElementById(\'video-stream\').currentTime = parsedSec;
                 }
             </script>';
-            $videoid = $row['id'];
+            $videoid = $row['vid'];
         }
         ?>
 
 <div class="topRight" style="margin-left: 500px; margin-top: -336px;">
 <div class="card gray">
         <?php
-            $stmt = $mysqli->prepare("SELECT * FROM videos WHERE id = ?");
-            $stmt->bind_param("s", $_GET['id']);
+            $stmt = $mysqli->prepare("SELECT * FROM videos WHERE vid = ?");
+            $stmt->bind_param("s", $_GET['v']);
             $stmt->execute();
             $result = $stmt->get_result();
             if($result->num_rows === 0) exit('No rows');
@@ -90,7 +90,7 @@ error_reporting(E_ALL);
                 echo "" . $row['likes'] . " likes<br>";
                 echo "By: " . $row['author'] . "<br><br>";
                 echo "<br>'" . $row['description'] . "'<br>";
-                echo "<a href='likevideo.php?id=" . $row['id'] . "'>Like Video</a>";
+                echo "<a href='likevideo.php?id=" . $row['vid'] . "'>Like Video</a>";
             }
 
         ?>  
@@ -98,14 +98,14 @@ error_reporting(E_ALL);
         <br>
         <div class="card message">     
         <?php
-            $stmt = $mysqli->prepare("SELECT * FROM videos WHERE id = ?");
-            $stmt->bind_param("s", $_GET['id']);
+            $stmt = $mysqli->prepare("SELECT * FROM videos WHERE vid = ?");
+            $stmt->bind_param("s", $_GET['v']);
             $stmt->execute();
             $result = $stmt->get_result();
             if($result->num_rows === 0) exit('No rows');
             while($row = $result->fetch_assoc()) {
-                echo "URL <input value=\"https://retrotube.ml/viewvideo.php?id=" . $row["id"] . "\"><br>
-                Embed <input style=\"margin-right: 13px;\" value='<iframe style=\"border: 0px; overflow: hidden;\" src=\"https://retrotube.ml/player/embed.php?id=" . $_GET['id'] . "\" height=\"360\" width=\"480\"></iframe>'>";
+                echo "URL <input value=\"https://retrotube.ml/viewvideo.php?v=" . $row["vid"] . "\"><br>
+                Embed <input style=\"margin-right: 13px;\" value='<iframe style=\"border: 0px; overflow: hidden;\" src=\"https://retrotube.ml/player/embed.php?v=" . $_GET['v'] . "\" height=\"360\" width=\"480\"></iframe>'>";
                 echo "<br>";
                 echo "URL to send in discord <input value=\"https://retrotube.ml/videos/" . $row["filename"] . "\">";
             }
@@ -117,13 +117,22 @@ error_reporting(E_ALL);
 </div>
 
         <?php
-        mysqli_query($mysqli, "UPDATE videos SET views = views+1 WHERE id = '" . $videoid . "'");
+        if(isset($_SESSION['views'.$videoid.'']))
+        $_SESSION['views'.$videoid.''] = $_SESSION['views'.$videoid.'']+1;
+    else
+        $_SESSION['views'.$videoid.'']=1;
+        //check if the user has already viewed the video
+        if ($_SESSION['views'.$videoid.''] > 1) {
+        echo "";
+        } else {
+        mysqli_query($mysqli, "UPDATE videos SET views = views+1 WHERE vid = '" . $videoid . "'");
         $stmt->close();
+        }        
         echo '<hr style="
     margin-top: 50px;
 ">';
-            $stmt = $mysqli->prepare("SELECT * FROM videos WHERE id = ?");
-            $stmt->bind_param("s", $_GET['id']);
+            $stmt = $mysqli->prepare("SELECT * FROM videos WHERE vid = ?");
+            $stmt->bind_param("s", $_GET['v']);
             $stmt->execute();
             $result = $stmt->get_result();
             if($result->num_rows === 0) exit('No rows');
@@ -159,7 +168,7 @@ error_reporting(E_ALL);
             }
             else {
                 $stmt = $mysqli->prepare("INSERT INTO comments (tovideoid, author, comment, date) VALUES (?, ?, ?, now())");
-                $stmt->bind_param("sss", $_GET['id'], $_SESSION['profileuser3'], $comment);
+                $stmt->bind_param("sss", $_GET['v'], $_SESSION['profileuser3'], $comment);
     
                 $comment = str_replace(PHP_EOL, "<br>", htmlspecialchars($_POST['bio']));
     
@@ -177,7 +186,7 @@ error_reporting(E_ALL);
     <hr>
     <?php
         $stmt = $mysqli->prepare("SELECT * FROM comments WHERE tovideoid = ?");
-        $stmt->bind_param("s", $_GET['id']);
+        $stmt->bind_param("s", $_GET['v']);
         $stmt->execute();
         $result = $stmt->get_result();
         if($result->num_rows === 0) echo('No comments.');

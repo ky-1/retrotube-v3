@@ -3,8 +3,8 @@
 <html data-theme="light">
     <head>
         <title><?php 
-            $statement = $mysqli->prepare("SELECT username FROM users WHERE id = ? LIMIT 1");
-            $statement->bind_param("i", $_GET['id']);
+            $statement = $mysqli->prepare("SELECT username FROM users WHERE username = ? LIMIT 1");
+            $statement->bind_param("s", $_GET['user']);
             $statement->execute();
             $result = $statement->get_result();
             while($row = $result->fetch_assoc()) {
@@ -20,8 +20,8 @@
         <div class="container-flex">
             <div class="col-2-3">
                 <?php
-                    $statement = $mysqli->prepare("SELECT `username`, `id`, `subscribers` FROM `users` WHERE `id` = ? LIMIT 1");
-                    $statement->bind_param("i", $_GET['id']);
+                    $statement = $mysqli->prepare("SELECT `username`, `id`, `subscribers` FROM `users` WHERE `username` = ? LIMIT 1");
+                    $statement->bind_param("s", $_GET['user']);
                     $statement->execute();
                     $result = $statement->get_result();
                     while($row = $result->fetch_assoc()) {
@@ -30,12 +30,12 @@
                         <div class=\"user-info\">
                             <div class=\"user-name\"><a href=\"profile.php?id=".$row["id"]."\">".$row["username"]."</a></div>
                             <div><span class=\"black\">".$row["subscribers"]."</span> subscribers</div>";
-                            if($_SESSION["subscribedto".$row["id"]] === false) {
-                                $finalstring .= "<div><a href=\"subscribe.php?id=".$row["id"]."&u=0\"><img src=\"buttonsub.png\"></a></div>";
-                            }
-                            else{
-                                $finalstring .= "<div><a href=\"subscribe.php?id=".$row["id"]."&u=1\"><img src=\"buttonunsub.png\"></a></div>";
-                            }
+                            // if($_SESSION["subscribedto".$row["id"]] === false) {
+                            //     $finalstring .= "<div><a href=\"subscribe.php?id=".$row["id"]."&u=0\"><img src=\"buttonsub.png\"></a></div>";
+                            // }
+                            // else{
+                            //     $finalstring .= "<div><a href=\"subscribe.php?id=".$row["id"]."&u=1\"><img src=\"buttonunsub.png\"></a></div>";
+                            // }
                         $finalstring .= "</div>";
 
                         echo $finalstring;
@@ -51,14 +51,11 @@
                         echo '
                         <div class="video container-flex">
                                 <div class="col-1-3 video-thumbnail">
-                                <a href="viewvideo.php?id='.$row['id'].'">
-                                    <video>
-                                        <source src="videos/'.$row['filename'].'" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video> 
+                                <a href="viewvideo.php?v='.$row['vid'].'">
+                                <img src="content/thumb/' . $row['thumb'] . '">
                                 </a>
                                 </div>
-                                <div class="col-1-3 video-title"><a href="viewvideo.php?id='.$row['id'].'">'.$row['videotitle'].'</a></div>
+                                <div class="col-1-3 video-title"><a href="viewvideo.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
                                 <div class="col-1-3 video-info">
                                     <div>Vistas: <span>'.$row['views'].'</span></div>
                                     <div>Likes: <span>'.$row['likes'].'</span></div>
@@ -75,8 +72,8 @@
             </div>
             <div class="col-1-3">
                 <?php
-                $statement = $mysqli->prepare("SELECT `description` FROM `users` WHERE `id` = ? LIMIT 1");
-                $statement->bind_param("i", $_GET['id']);
+                $statement = $mysqli->prepare("SELECT `description` FROM `users` WHERE `username` = ? LIMIT 1");
+                $statement->bind_param("s", $_GET['user']);
                 $statement->execute();
                 $result = $statement->get_result();
                 while($row = $result->fetch_assoc()) {

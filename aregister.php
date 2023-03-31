@@ -12,14 +12,10 @@
             <h3>Member Login</h1>
             <p>Already have an account? Login here.</p>
             <div class="card gray">
-                <form method='post' action=''>
+                <form method='post' action='alogin.php'>
                     <div class="input-group">
                         <label for="username">Username: </label>
                         <input type="text" name="name" pattern="[^()/><\][\\\x22,;|]+" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="email">Email: </label>
-                        <input type="email" name="email" required>
                     </div>
                     <div class="input-group">
                         <label for="password">Password: </label>

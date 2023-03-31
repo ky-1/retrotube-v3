@@ -16,10 +16,6 @@
                         <input type="text" name="name" required>
                     </div>
                     <div class="input-group">
-                        <label>Email: </label>
-                        <input type="email" name="email" required>
-                    </div>
-                    <div class="input-group">
                         <label>Password: </label>
                         <input type="password" name="password" required>
                     </div>
@@ -62,9 +58,9 @@
             </div>
         </div>
         <div class="col-1-2">
-            <h3>Thanks for registering.</h3>
+            <h3>Thanks for making an account!</h3>
             <p>
-            Here are some things I'm adding into this crappy 2007 youtube recreation:
+Welcome to RETROTube!
             </p>
             <ul>
                 <li>uploading</li>
