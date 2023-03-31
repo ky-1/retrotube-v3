@@ -32,5 +32,5 @@
     $loggedIn = isset($_SESSION['profileuser3']);
 
 	// sets discord webhook
-	$webhook = "https://discord.com/api/webhooks/1091202278825918474/4X1obWT3dt34bR6oIh83j7UzmoORNytQU-ffCK8ZZJYAnk3EuEUbcvvSqOMEjTRhjBaz";
+	$webhook = "";
 ?>

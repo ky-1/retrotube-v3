@@ -2,3 +2,4 @@ content/video/
 content/thumb/
 content/unprocessed/
 *.mp4
+global.php
