@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 18, 2020 at 10:45 PM
--- Server version: 5.7.29-0ubuntu0.18.04.1
--- PHP Version: 7.2.24-0ubuntu0.18.04.4
+-- Host: 127.0.0.1
+-- Generation Time: Mar 31, 2023 at 02:42 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,8 +18,21 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `youtube07`
+-- Database: `retrotube`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `announcements`
+--
+
+CREATE TABLE `announcements` (
+  `id` int(11) NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -27,12 +41,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `comments` (
-  `tovideoid` int(11) NOT NULL,
+  `tovideoid` varchar(11) NOT NULL,
   `id` int(11) NOT NULL,
   `author` varchar(255) NOT NULL,
   `comment` varchar(255) NOT NULL,
   `date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -43,13 +57,14 @@ CREATE TABLE `comments` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `date` datetime NOT NULL,
-  `subscribers` int(11) NOT NULL DEFAULT '0',
+  `subscribers` int(11) NOT NULL DEFAULT 0,
   `username` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL DEFAULT 'v',
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `pfp` varchar(255) NOT NULL DEFAULT 'acc.jpg'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `pfp` varchar(255) NOT NULL DEFAULT 'acc.jpg',
+  `is_admin` int(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -59,19 +74,27 @@ CREATE TABLE `users` (
 
 CREATE TABLE `videos` (
   `videotitle` varchar(255) NOT NULL,
-  `id` int(11) NOT NULL,
+  `vid` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL DEFAULT '',
   `author` varchar(255) NOT NULL,
-  `likes` int(11) NOT NULL DEFAULT '0',
+  `likes` int(11) NOT NULL DEFAULT 0,
   `date` datetime NOT NULL,
-  `views` int(11) NOT NULL DEFAULT '0',
+  `views` int(11) NOT NULL DEFAULT 0,
   `filename` varchar(255) NOT NULL,
-  `featured` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `thumb` varchar(255) NOT NULL,
+  `featured` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `announcements`
+--
+ALTER TABLE `announcements`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indexes for table `comments`
@@ -89,27 +112,31 @@ ALTER TABLE `users`
 -- Indexes for table `videos`
 --
 ALTER TABLE `videos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`vid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `announcements`
+--
+ALTER TABLE `announcements`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
---
--- AUTO_INCREMENT for table `videos`
---
-ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
