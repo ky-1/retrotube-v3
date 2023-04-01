@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="col-1-3 video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
                                 <div class="col-1-3 video-info">
-                                    <div>From: <a href="profile.php?username='.$row['author'].'">'.$row['author'].'</a></div>
+                                    <div>From: <a href="profile.php?user='.$row['author'].'">'.$row['author'].'</a></div>
                                     <div>Views: <span>'.$row['views'].'</span></div>
                                     <div>Likes: <span>'.$row['likes'].'</span></div>
                                 </div>
