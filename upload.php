@@ -42,6 +42,12 @@
         </div>
     </div>
     <?php
+    if(!isset($_SESSION['profileuser3'])) {
+        echo('<script>
+             window.location.href = "index.php";
+             </script>');
+    }
+   if (isset($_POST['submit'])){
     if(empty($_POST['fileToUpload'])) {
         echo('<script>
         window.location.href = "index.php";
@@ -57,12 +63,6 @@
         window.location.href = "index.php";
         </script>');
     }
-    if(!isset($_SESSION['profileuser3'])) {
-        echo('<script>
-             window.location.href = "index.php";
-             </script>');
-    }
-   if (isset($_POST['submit'])){
        if(!isset($_SESSION['profileuser3'])) {
            die("Login to upload videos...");
        }
