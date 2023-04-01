@@ -104,10 +104,10 @@ error_reporting(E_ALL);
             $result = $stmt->get_result();
             if($result->num_rows === 0) exit('No rows');
             while($row = $result->fetch_assoc()) {
-                echo "URL <input value=\"https://retrotube.ml/viewvideo.php?v=" . $row["vid"] . "\"><br>
+                echo "URL <input value=\"https://retrotube.ml/watch.php?v=" . $row["vid"] . "\"><br>
                 Embed <input style=\"margin-right: 13px;\" value='<iframe style=\"border: 0px; overflow: hidden;\" src=\"https://retrotube.ml/player/embed.php?v=" . $_GET['v'] . "\" height=\"360\" width=\"480\"></iframe>'>";
                 echo "<br>";
-                echo "URL to send in discord <input value=\"https://retrotube.ml/videos/" . $row["filename"] . "\">";
+                echo "Direct URL <input value=\"https://retrotube.ml/content/video/" . $row["filename"] . "\">";
             }
 
         ?>  

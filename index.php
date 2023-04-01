@@ -12,7 +12,7 @@
             <h3>Featured Videos</h3>
             <div class="featured-videos container-flex">
                 <?php
-                    $statement = $mysqli->prepare("SELECT * FROM videos WHERE featured = TRUE LIMIT 3"); //sexy variable names
+                    $statement = $mysqli->prepare("SELECT * FROM videos WHERE featured = TRUE LIMIT 4"); //sexy variable names
                     //$statement->bind_param("s", $_POST['fr']);
                     $statement->execute();
                     $result = $statement->get_result();
