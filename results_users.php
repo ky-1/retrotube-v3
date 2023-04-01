@@ -17,7 +17,7 @@
 {
 	if(!empty($_GET['q']))
 	{
-		$search = htmlspecialchars('$_GET['q']');
+		$search = htmlspecialchars($_GET['q']);
 		$stmt = $mysqli->prepare("select * from users where username like '%$search%' or description like '%$search%'");
 		$stmt->execute();
 		$results = $stmt->get_result();
