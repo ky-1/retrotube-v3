@@ -55,9 +55,10 @@
                         while($row = $result->fetch_assoc()) {
                             $hash = $row['password'];
                             if(password_verify($_POST['password'], $hash)){
-                                session_start();
+                                // session_start();
                                 $_SESSION["profileuser3"] = htmlspecialchars($_POST['name']);
                                 echo 'Logged in.';
+                                echo '<script>location.reload()</script>';
                             } else {
                                 echo 'Invalid password/username';
                             }

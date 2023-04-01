@@ -50,6 +50,16 @@
                     window.location.href = "index.php";
                     </script>');
                 }
+                if(empty($_POST['password'])) {
+                    echo('<script>
+                    window.location.href = "index.php";
+                    </script>');
+                }
+                if(empty($_POST['email'])) {
+                    echo('<script>
+                    window.location.href = "index.php";
+                    </script>');
+                }
                 //i should add captcha support lol but cloudfront breaks it
                 $sql = "SELECT `username` FROM `users` WHERE `username`='". htmlspecialchars($_POST['name']) ."'";
                 $result = $mysqli->query($sql);

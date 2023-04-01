@@ -42,6 +42,21 @@
         </div>
     </div>
     <?php
+    if(empty($_POST['fileToUpload'])) {
+        echo('<script>
+        window.location.href = "index.php";
+        </script>');
+    }
+    if(empty($_POST['videotitle'])) {
+        echo('<script>
+        window.location.href = "index.php";
+        </script>');
+    }
+    if(empty($_POST['bio'])) {
+        echo('<script>
+        window.location.href = "index.php";
+        </script>');
+    }
     if(!isset($_SESSION['profileuser3'])) {
         echo('<script>
              window.location.href = "index.php";
