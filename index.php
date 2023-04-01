@@ -45,7 +45,7 @@
                 ?>
             </div>
             <hr>
-            <h3>Videos</h3>
+            <h3>Recent Videos</h3>
             <div class="videos">
             <?php
                 if($_POST !== null) {
@@ -58,7 +58,7 @@
                                 // session_start();
                                 $_SESSION["profileuser3"] = htmlspecialchars($_POST['name']);
                                 echo 'Logged in.';
-                                echo '<script>location.reload()</script>';
+                                echo '<script>window.location.href = "index.php";</script>';
                             } else {
                                 echo 'Invalid password/username';
                             }

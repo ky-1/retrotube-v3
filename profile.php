@@ -55,7 +55,7 @@
                                 <img src="content/thumb/' . $row['thumb'] . '">
                                 </a>
                                 </div>
-                                <div class="col-1-3 video-title"><a href="viewvideo.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
+                                <div class="col-1-3 video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
                                 <div class="col-1-3 video-info">
                                     <div>Vistas: <span>'.$row['views'].'</span></div>
                                     <div>Likes: <span>'.$row['likes'].'</span></div>
