@@ -20,7 +20,7 @@
 {
 	if(!empty($_GET['q']))
 	{
-		$search = htmlspecialchars("$_GET['q']");
+		$search = htmlspecialchars('$_GET['q']');
 		$stmt = $mysqli->prepare("select * from videos where videotitle like '%$search%' or description like '%$search%'");
 		$stmt->execute();
 		$results = $stmt->get_result();
