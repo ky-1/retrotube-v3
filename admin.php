@@ -26,7 +26,6 @@
                     }
                 ?>
 	<h2>Admin</h2>
-	<hr>
     <?php
        $sql = "SELECT COUNT(*) FROM users";
        $result = mysqli_query($mysqli, $sql);
@@ -38,7 +37,7 @@
        $result3 = mysqli_query($mysqli, $sql3);
        $commentcount = mysqli_fetch_assoc($result3)['COUNT(*)'];
        $phpver = phpversion();
-       echo "Users: $usercount <br> Videos: $videocount <br> Comments: $commentcount <br> PHP Version: $phpver </center>";
+       echo "Users: $usercount <br> Videos: $videocount <br> Comments: $commentcount <br> PHP Version: $phpver<br>";
        ?>
     <?php include("footer.php") ?>
 </body>
