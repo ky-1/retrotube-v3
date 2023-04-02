@@ -31,7 +31,8 @@
 <meta name="twitter:player" value="https://retrotube.ml/content/video/'.$row['vid'].'.mp4">
 <meta property="twitter:player:width" content="1280">
 <meta property="twitter:player:height" content="720">
-<meta name="title" content="'.$row['videotitle'].'"> ';
+<meta name="title" content="'.$row['videotitle'].'">
+<title>'.$row['videotitle'].' - YuoTueb</title> ';
 }
 $statement->close();
 ?>
