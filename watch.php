@@ -4,7 +4,37 @@
 <head>
     <link rel="stylesheet" type="text/css" href="./css/global.css">
     <link rel="stylesheet" type="text/css" href="./css/index.css">
-    <title>Watch - YuoTueb</title>
+    <?php 
+            $statement = $mysqli->prepare("SELECT * FROM videos WHERE vid = ? LIMIT 1");
+            $statement->bind_param("s", $_GET['v']);
+            $statement->execute();
+            $result = $statement->get_result();
+            while($row = $result->fetch_assoc()) {
+   echo ' <meta name="title" content="'.$row['videotitle'].'">
+
+<meta name="description"
+    content="'.$row['description'].'">
+
+<meta name="keywords" content="">
+
+<meta property="og:url" content="https://retrotube.ml/watch.php?v='.$row['vid'].'">
+<meta property="og:title" content="'.$row['videotitle'].'">
+<meta property="og:description"
+    content="'.$row['description'].'">
+<meta property="og:type" content="video">
+<meta property="og:image" content="https://retrotube.ml/content/thumb/'.$row['vid'].'.jpg">
+<meta property="og:video" content="https://retrotube.ml/content/video/'.$row['vid'].'.mp4">
+<meta property="og:video:width" content="1280">
+<meta property="og:video:height" content="720">
+<meta property="og:video:type" content="video/mp4" />
+<meta name="twitter:card" value="player">
+<meta name="twitter:player" value="https://retrotube.ml/content/video/'.$row['vid'].'.mp4">
+<meta property="twitter:player:width" content="1280">
+<meta property="twitter:player:height" content="720">
+<meta name="title" content="'.$row['videotitle'].'"> ';
+}
+$statement->close();
+?>
 </head>
 </html>
 <?php
