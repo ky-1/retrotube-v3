@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="./css/global.css">
     <link rel="stylesheet" type="text/css" href="./css/index.css">
-    <title>Watch - RETROTube</title>
+    <title>Watch - YuoTueb</title>
 </head>
 </html>
 <?php

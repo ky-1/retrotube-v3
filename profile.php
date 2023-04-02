@@ -8,7 +8,7 @@
             $statement->execute();
             $result = $statement->get_result();
             while($row = $result->fetch_assoc()) {
-                echo $row['username']."'s Profile - RETROTube";
+                echo $row['username']."'s Profile - YuoTueb";
             }
             $statement->close();
         ?></title>

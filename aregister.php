@@ -74,7 +74,10 @@
                     $statement->execute();
                     $statement->close();
                     $mysqli->close();
-                    echo "<br><br>Sucessfully made a RETROTube account!<br><a href='./alogin.php'>CLICK HERE TO LOGIN</a>";
+                    //echo "<br><br>Sucessfully made a YuoTueb account!<br><a href='./alogin.php'>CLICK HERE TO LOGIN</a>";
+                    echo('<script>
+                    window.location.href = "alogin.php";
+                    </script>');
                 }
             }
             ?>
@@ -86,7 +89,7 @@
                 <form method='post' action=''>
                     <div class="input-group">
                         <label for="username">Username: </label>
-                        <input type="text" name="name" pattern="[^()/><\][\\\x22,;|]+" required>
+                        <input type="text" name="name" pattern="[^()/><\][\\\x22,;|]+" maxlength="15" required>
                     </div>
                     <div class="input-group">
                         <label for="email">Email: </label>

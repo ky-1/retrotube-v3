@@ -105,6 +105,7 @@
                $new_target_file = "content/unprocessed/$v_id.mp4";
                exec("$ffmpeg -i ".$new_target_file." -vf scale=480x360 -c:v libx264 -b:a 56k  -c:a aac -ar 22050 content/video/$v_id.mp4");
                $processed_file = "content/video/$v_id.mp4";
+               unlink("content/unprocessed/$v_id.mp4");
                $target_thumb = "content/thumb/".$v_id.".jpg";
                $thumbcmd = "$ffmpeg -i $processed_file -vf \"thumbnail\" -frames:v 1 -s 120x70 $target_thumb";
                $video = $_POST['videotitle'];

@@ -58,7 +58,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `date` datetime NOT NULL,
   `subscribers` int(11) NOT NULL DEFAULT 0,
-  `username` varchar(255) NOT NULL,
+  `username` varchar(15) NOT NULL,
   `description` varchar(255) NOT NULL DEFAULT 'v',
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,

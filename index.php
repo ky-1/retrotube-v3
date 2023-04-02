@@ -124,7 +124,7 @@
             ?>
             <div class="card message">
                 <div class="card-header">Whats New</div>
-                RETROTube has returned with an improved source code. The uploader now creates thumbnails as images and compresses videos. 
+                YuoTueb has returned with an improved source code. The uploader now creates thumbnails as images and compresses videos. 
             </div>
         </div>
         </div>
