@@ -44,7 +44,7 @@
 						    <div><a href='./profile.php?user=<?php echo $value['username'];?>'><?php echo $value['username'];?></a></div>
 						    <div><span class='black'><?php echo $value['subscribers'];?></span> subscribers</div>
 					    </div>
-					    <div><a href='./profile.php?user=<?php echo $value['username'];?>'><img class='user-picture' src='./pfp/<?php echo getUserPic($value['id']); ?></a></div>
+					    <div><a href='./profile.php?user=<?php echo $value['username'];?>'><img class='user-picture' src='./pfp/<?php echo $value['id']; ?></a></div>
 				    </div>
 				    <hr>
 		    	 		
