@@ -27,6 +27,19 @@
                 ?>
 	<h2>Admin</h2>
 	<hr>
+    <?php
+       $sql = "SELECT COUNT(*) FROM users";
+       $result = mysqli_query($mysqli, $sql);
+       $usercount = mysqli_fetch_assoc($result)['COUNT(*)'];
+       $sql2 = "SELECT COUNT(*) FROM videos";
+       $result2 = mysqli_query($mysqli, $sql2);
+       $videocount = mysqli_fetch_assoc($result2)['COUNT(*)'];
+       $sql3 = "SELECT COUNT(*) FROM comments";
+       $result3 = mysqli_query($mysqli, $sql3);
+       $commentcount = mysqli_fetch_assoc($result3)['COUNT(*)'];
+       $phpver = phpversion();
+       echo "Users: $usercount <br> Videos: $videocount <br> Comments: $commentcount <br> PHP Version: $phpver </center>";
+       ?>
     <?php include("footer.php") ?>
 </body>
 <?php $mysqli->close();?>
