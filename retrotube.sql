@@ -76,7 +76,7 @@ CREATE TABLE `videos` (
   `videotitle` varchar(255) NOT NULL,
   `vid` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL DEFAULT '',
-  `author` varchar(255) NOT NULL,
+  `author` varchar(15) NOT NULL,
   `likes` int(11) NOT NULL DEFAULT 0,
   `date` datetime NOT NULL,
   `views` int(11) NOT NULL DEFAULT 0,
