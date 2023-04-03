@@ -85,6 +85,7 @@
 			    $result = $statement->get_result();
 			    if($result->num_rows === 0) exit('No rows');
 			    while($row = $result->fetch_assoc()) {
+					$join = date("F d, Y", strtotime($row["date"]));
 			        echo "
 			        <div class=\"user-info\">
 				        <a href=\"./profile.php?user=".$row["username"]."\"><img class=\"user-pic\" src=\"pfp/".getUserPic($row["id"])."\"></a>
@@ -92,7 +93,7 @@
 					        <div class=\"username\"><a href=\"./profile.php?user=".$row["username"]."\">".$row["username"]."</a></div>
 					        <div><span class=\"subscribers black\">".$rows."</span> subscribers</div>
 					        <div>Your E-mail: <span class=\"black\">".$row["email"]."</span></div>
-					        <div>Joined: <span class=\"black\">".$row["date"]."</span></div>
+					        <div>Joined: <span class=\"black\">".$join."</span></div>
 				        </div>
 			        </div>
 			        <hr>
