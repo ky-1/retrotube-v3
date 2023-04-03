@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html style="height:100%">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kupbord Ads</title>
+  </head>
+  <body id="image" style="margin:0; background-size:cover; background-repeat: no-repeat;">
+    
+    <a href="https://revid.pw" target="_blank" class="wholepage" id="imglink"></a>
+    
+    <script type="text/javascript">
+    //user2663434 did the code below, and melodicake used this and I'm using this thx to her now
+    var images = [
+        "https://media.discordapp.net/attachments/1091810924798681169/1092576575058354216/5CE57F82-A450-4AEE-8F66-2C64EF025BD1.jpg",
+        "https://media.discordapp.net/attachments/1091810924798681169/1092576575305822359/Untitled11.png?width=390&height=390"];
+        
+    var links = [
+        "https://revid.pw/profile.php?user=kylarz",
+        "https://revid.pw/"];
+    
+    function randImg(index) {
+        var size = images.length;
+        var i;
+        if (index) {
+          i = index;
+        } else {
+          i = Math.floor(size * Math.random());
+        }
+        document.getElementById('image').style.backgroundImage = "url('"+images[i]+"')";
+        document.getElementById('imglink').href = links[i];
+        setTimeout(randImg, 30000);
+    }
+    
+    randImg();
+    </script>
+    
+    <div class="fixed">
+      <a href="https://revid.pw" target="_blank" style="color:dimgray;">Kupbord Ads</a>
+    </div>
+    
+    <style>
+      div.fixed {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: 4px;
+        border: 1px solid;
+        border-color: gray;
+        border-top-left-radius: 4px;
+        background-color: #ffffffc0;
+        font-size: x-small;
+        font-family: sans-serif;
+      }
+      a.wholepage {
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         width: 100%;
+         height: 100%;
+         text-indent: -9999px; /* we don't need to see the text, but some users and robots such as Google do */
+      }
+      img {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+  </body>
+</html>

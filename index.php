@@ -146,6 +146,7 @@
                 <div class="card-header">What's New</div>
                 YuoTueb has returned with an improved source code. The uploader now creates thumbnails as images and compresses videos. 
             </div>
+            <iframe width="300" height="300" style="border:none" src="ugc.html" name="kupbord"></iframe>
         </div>
         </div>
     <?php include("footer.php") ?>
