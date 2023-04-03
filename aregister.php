@@ -60,6 +60,42 @@
                     window.location.href = "index.php";
                     </script>');
                 }
+                if (strlen($_POST['name']) > 15) {
+                    echo('Username too long.');
+                    die('</div>
+                    <div class="col-1-2">
+                        <h3>Create Your Account</h1>
+                        <p>It&#8217;s free and easy. Just fill out the account info below. <span class="red">(All fields required)</span></p>
+                        <div class="card blue">
+                            <form method="post" action="">
+                                <div class="input-group">
+                                    <label for="username">Username: </label>
+                                    <input type="text" name="name" pattern="[^()/><\][\\\x22,;|]+" maxlength="15" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="email">Email: </label>
+                                    <input type="email" name="email" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="password">Password: </label>
+                                    <input type="password" name="password" required>
+                                </div>
+                                <div class="input-group">
+                                    <div></div>
+                                    <div><button type="submit" class="btn" name="reg_user" class="button">Sign Up</button></div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card message">
+                            Never give your password to a stranger!
+                        </div>
+                    </div>
+                </div>
+                <hr>');
+                include("footer.php");
+                echo("</body>
+                </html>");
+                }
                 //i should add captcha support lol but cloudfront breaks it
                 $sql = "SELECT `username` FROM `users` WHERE `username`='". htmlspecialchars($_POST['name']) ."'";
                 $result = $mysqli->query($sql);

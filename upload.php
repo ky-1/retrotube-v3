@@ -36,6 +36,7 @@
                     <li>NO GORE/NSFW (video will be deleted)</li>
                     <li>NO ILLEGAL VIDEOS (permanant ip ban off of retrotube.ml)</li>
                     <li>VIDEO METADATA IS NOT CORRUPTED (video will be deleted)</li>
+                    <li>NO OFFENSIVE CONTENT (account deletion & discord ban if applicable)
                 </ul>
                 Thanks.
             </div>
@@ -62,6 +63,10 @@
         echo('<script>
         window.location.href = "index.php";
         </script>');
+    }
+    if (strlen($_POST['videotitle']) > 15) {
+        echo('Video title too long.');
+        exit();
     }
        if(!isset($_SESSION['profileuser3'])) {
            die("Login to upload videos...");
