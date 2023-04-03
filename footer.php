@@ -30,5 +30,5 @@ margin-bottom: -42px;
 					</select> <button type="button">Search</button></center></div>
 			</span>
 </center><br>
-<center><p style="font-size: 10px;">© 2007 YuoTueb</p></center>
+<center><p style="font-size: 10px;">© 2007 YuoTueb - <a href="themes.php">Themes</a></p></center>
 <script src="js/themes-global.js"></script>

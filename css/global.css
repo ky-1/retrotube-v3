@@ -57,7 +57,25 @@ html[data-theme='olive'] {
     --inputlol: #fff;
     --colblack: #000;
 }
-
+html[data-theme='logo'] {
+    --main-a: #003399;
+    --header-border: #ccddff;
+    --header-button-1: #ffffff;
+    --header-button-2: #acbbe0;
+    --bg: #fff;
+    --rlogo: url(../yuotueb.png);
+    --hr: #aaa;
+    --header-combo: linear-gradient(#bbb, #ddd);
+    --card-msg-1: #ffffdd;
+    --card-msg-2: #ffddaa;
+    --txtcol: #000;
+    --buttoncol: rgb(216, 216, 216);
+    --card-blue-1: 180deg, white, #acbbe0;
+    --card-gray-1: #eee;
+    --card-gray-2: #ccc;
+    --inputlol: #fff;
+    --colblack: #000;
+}
 input {
     background-color: var(--inputlol);
 }

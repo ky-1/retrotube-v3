@@ -15,6 +15,7 @@
     <strong>Original Themes</strong> <br>
     Dark Theme (BETA) <button id="tdark" name="theme">Use</button> <br>
     Light Theme <button id="tlight" name="theme">Use</button> <br>
+    YuoTueb Logo Theme <button id="tlogo" name="theme">Use</button> <br>
     Test Theme (NOT DONE) <button id="tolive" name="theme">Use</button> <br>
 </body>
 <script src="js/themes.js"></script>

@@ -22,6 +22,11 @@ const changeThemeToOlive = () => {
     localStorage.setItem("data-theme", 'olive')
 }
 
+const changeThemeToLogo = () => {
+    document.documentElement.setAttribute("data-theme", "logo")
+    localStorage.setItem("data-theme", 'logo')
+}
+
 if (theme == "dark") {
     changeThemeToDark()
 }
@@ -32,4 +37,8 @@ if (theme == "light") {
 
 if (theme == "olive") {
     changeThemeToOlive()
+}
+
+if (theme == "logo") {
+    changeThemeToLogo()
 }
