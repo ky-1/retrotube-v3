@@ -123,7 +123,7 @@
             }
             ?>
             <div class="card message">
-                <div class="card-header">Whats New</div>
+                <div class="card-header">What's New</div>
                 YuoTueb has returned with an improved source code. The uploader now creates thumbnails as images and compresses videos. 
             </div>
         </div>
