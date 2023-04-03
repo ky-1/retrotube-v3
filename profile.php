@@ -20,27 +20,24 @@
         <div class="container-flex">
             <div class="col-2-3">
                 <?php
+                   $rows = getSubscribers($_GET['user'], $mysqli);
                     $statement = $mysqli->prepare("SELECT `username`, `id`, `subscribers` FROM `users` WHERE `username` = ? LIMIT 1");
                     $statement->bind_param("s", $_GET['user']);
                     $statement->execute();
                     $result = $statement->get_result();
                     while($row = $result->fetch_assoc()) {
-                        $finalstring = "<h3>User ".$row['username']."</h3>
+                        echo "<h3>User ".$row["username"]."</h3>
                         <img class=\"user-pic\" src=\"pfp/".getUserPic($row["id"])."\">
                         <div class=\"user-info\">
                             <div class=\"user-name\"><a href=\"profile.php?id=".$row["id"]."\">".$row["username"]."</a></div>
-                            <div><span class=\"black\">".$row["subscribers"]."</span> subscribers</div>";
-                            // if($_SESSION["subscribedto".$row["id"]] === false) {
-                            //     $finalstring .= "<div><a href=\"subscribe.php?id=".$row["id"]."&u=0\"><img src=\"buttonsub.png\"></a></div>";
-                            // }
-                            // else{
-                            //     $finalstring .= "<div><a href=\"subscribe.php?id=".$row["id"]."&u=1\"><img src=\"buttonunsub.png\"></a></div>";
-                            // }
-                        $finalstring .= "</div>";
-
-                        echo $finalstring;
-                        $username = $row["username"];
-                    }
+                            <div><span class=\"black\">".$rows."</span> subscribers</div>"; $username = $row['username'];}?>
+                            <?php if(ifSubscribed($_SESSION['profileuser3'], $_GET['user'], $mysqli) == false) {
+                               echo '<div><a href="subscribe.php?user='.$_GET['user'].'"><img src="buttonsub.png"></a></div></div>';
+                               } else { 
+                                echo '<div><a href="unsubscribe.php?user='.$_GET['user'].'"><img src="buttonunsub.png"></a></div></div>';
+                                 } 
+                                 ?>
+                                <?php
                     $statement = $mysqli->prepare("SELECT * FROM `videos` WHERE `author` = ?");
                     $statement->bind_param("s", $username);
                     $statement->execute();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2023 at 02:42 PM
+-- Generation Time: Apr 03, 2023 at 06:26 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -51,6 +51,30 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `likes`
+--
+
+CREATE TABLE `likes` (
+  `like_id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `vid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscribers`
+--
+
+CREATE TABLE `subscribers` (
+  `sub_id` int(11) NOT NULL,
+  `sender` varchar(15) NOT NULL,
+  `receiver` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -58,7 +82,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `date` datetime NOT NULL,
   `subscribers` int(11) NOT NULL DEFAULT 0,
-  `username` varchar(15) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL DEFAULT 'v',
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -76,7 +100,7 @@ CREATE TABLE `videos` (
   `videotitle` varchar(255) NOT NULL,
   `vid` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL DEFAULT '',
-  `author` varchar(15) NOT NULL,
+  `author` varchar(255) NOT NULL,
   `likes` int(11) NOT NULL DEFAULT 0,
   `date` datetime NOT NULL,
   `views` int(11) NOT NULL DEFAULT 0,
@@ -101,6 +125,12 @@ ALTER TABLE `announcements`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subscribers`
+--
+ALTER TABLE `subscribers`
+  ADD PRIMARY KEY (`sub_id`);
 
 --
 -- Indexes for table `users`
@@ -129,6 +159,12 @@ ALTER TABLE `announcements`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `subscribers`
+--
+ALTER TABLE `subscribers`
+  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
