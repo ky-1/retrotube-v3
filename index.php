@@ -96,6 +96,26 @@
             </div>
         </div>
         <div class="col-1-3">
+        <?php
+            if($loggedIn) {
+                $rows = getSubscribers($_SESSION['profileuser3'], $mysqli);
+                $statement = $mysqli->prepare("SELECT `date` FROM `users` WHERE `username` = ? LIMIT 1");
+                $statement->bind_param("s", $_SESSION['profileuser3']);
+                $statement->execute();
+                $result = $statement->get_result();
+                while($row = $result->fetch_assoc()) {
+                $joined = time_elapsed_string($row['date']);
+                }
+                echo '<div class="card login">
+                <div class="card-header">
+                    Welcome, '.$_SESSION['profileuser3'].'!
+                </div>
+                <div class="card-content">
+                You have '.$rows.' subscribers!
+                <br>You joined '.$joined.'.
+                </div>
+                </div>';
+            }?>
             <?php
             if(!$loggedIn) {
                 echo '<div class="card login">
