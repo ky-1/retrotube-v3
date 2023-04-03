@@ -31,11 +31,16 @@
                         <div class=\"user-info\">
                             <div class=\"user-name\"><a href=\"profile.php?id=".$row["id"]."\">".$row["username"]."</a></div>
                             <div><span class=\"black\">".$rows."</span> subscribers</div>"; $username = $row['username'];}?>
-                            <?php if(ifSubscribed($_SESSION['profileuser3'], $_GET['user'], $mysqli) == false) {
+                            <?php 
+                            if(isset($_SESSION['profileuser3'])) {
+                                if(ifSubscribed($_SESSION['profileuser3'], $_GET['user'], $mysqli) == false) {
                                echo '<div><a href="subscribe.php?user='.$_GET['user'].'"><img src="buttonsub.png"></a></div></div>';
                                } else { 
                                 echo '<div><a href="unsubscribe.php?user='.$_GET['user'].'"><img src="buttonunsub.png"></a></div></div>';
                                  } 
+                                } else {
+                                    echo "<div><a onclick='alert('You are not logged in.')'><img src='buttonsub.png'></a></div></div>";
+                                }
                                  ?>
                                 <?php
                     $statement = $mysqli->prepare("SELECT * FROM `videos` WHERE `author` = ?");
@@ -69,7 +74,7 @@
             </div>
             <div class="col-1-3">
                 <?php
-                $statement = $mysqli->prepare("SELECT `description` FROM `users` WHERE `username` = ? LIMIT 1");
+                $statement = $mysqli->prepare("SELECT `description`, `date` FROM `users` WHERE `username` = ? LIMIT 1");
                 $statement->bind_param("s", $_GET['user']);
                 $statement->execute();
                 $result = $statement->get_result();
@@ -77,6 +82,8 @@
                     echo "<div class='card message'>
                     <div class='card-header'>Description</div>
                     ".$row["description"]."
+                    <hr>
+                    &#9432; Joined ".$row["date"]."
                     </div>";
                 }
                 $statement->close();
