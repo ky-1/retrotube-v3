@@ -16,7 +16,10 @@
     Dark Theme (BETA) <button id="tdark" name="theme">Use</button> <br>
     Light Theme <button id="tlight" name="theme">Use</button> <br>
     YuoTueb Logo Theme <button id="tlogo" name="theme">Use</button> <br>
-    Test Theme (NOT DONE) <button id="tolive" name="theme">Use</button> <br>
+    Test Theme (NOT DONE) <button id="tolive" name="theme">Use</button> <hr>
+    <strong>User-created themes</strong> <br>
+    These themes were made by non-staff members. They may contain features (e.g. box-shadow) that are not added into the official theme picker. <br>
+    <b>Frutiger</b> - <a href="https://raw.githubusercontent.com/ky-1/RTMods/main/frutiger.css">GET (Requires: Stylus)</a>
 </body>
 <script src="js/themes.js"></script>
 </html>
