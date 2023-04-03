@@ -78,6 +78,7 @@
 			<h3>Your Account Details</h3>
 			<?php
 			if(isset($_SESSION['profileuser3'])){
+				$rows = getSubscribers($_SESSION['profileuser3'], $mysqli);
 			    $statement = $mysqli->prepare("SELECT * FROM users WHERE username = ? LIMIT 1");
 			    $statement->bind_param("s", $_SESSION['profileuser3']);
 			    $statement->execute();
@@ -89,7 +90,7 @@
 				        <a href=\"./profile.php?user=".$row["username"]."\"><img class=\"user-pic\" src=\"pfp/".getUserPic($row["id"])."\"></a>
 				        <div class=\"user-stats\">
 					        <div class=\"username\"><a href=\"./profile.php?user=".$row["username"]."\">".$row["username"]."</a></div>
-					        <div><span class=\"subscribers black\">".$row["subscribers"]."</span> subscribers</div>
+					        <div><span class=\"subscribers black\">".$rows."</span> subscribers</div>
 					        <div>Your E-mail: <span class=\"black\">".$row["email"]."</span></div>
 					        <div>Joined: <span class=\"black\">".$row["date"]."</span></div>
 				        </div>
