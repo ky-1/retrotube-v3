@@ -79,11 +79,12 @@
                 $statement->execute();
                 $result = $statement->get_result();
                 while($row = $result->fetch_assoc()) {
+                    $join = date("F d, Y", strtotime($row["date"]));
                     echo "<div class='card message'>
                     <div class='card-header'>Description</div>
                     ".$row["description"]."
                     <hr>
-                    &#9432; Joined ".$row["date"]."
+                    &#9432; Joined ".$join."
                     </div>";
                 }
                 $statement->close();
