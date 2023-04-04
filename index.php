@@ -9,7 +9,7 @@
     <?php include("header.php"); ?>
     <div class="container-flex">
         <div class="col-2-3">
-            <h3>Featured Videos</h3>
+            <h4 style="padding:0;margin:0;margin-bottom:2px;color:#4A4A4A;">Promoted Videos</h4>
             <div class="featured-videos container-flex">
                 <?php
                     $statement = $mysqli->prepare("SELECT * FROM videos WHERE featured = TRUE LIMIT 4"); //sexy variable names
@@ -44,8 +44,16 @@
                     }
                 ?>
             </div>
-            <hr>
-            <h3>Recent Videos</h3>
+            <h3>Featured Videos</h3>
+            <div id="hpFeaturedAndSmallTabs">
+		<div id="hpEditorContainer">
+				<div id="hpYTChannelImg"><a href="profile.php?user=kylarz"><img src="/pfp/1" alt="editor image" width="30" height="30" border="0"></a></div>
+			<div id="hpEditorInfo">
+				<div id="hpEditorHead">Featured Videos selected by:
+				<b><a href="profile.php?user=kylarz">kylarz</a></b></div>
+			</div>
+		</div>
+	</div>
             <div class="videos">
             <?php
                 if($_POST !== null) {
