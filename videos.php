@@ -5,32 +5,92 @@
     <link rel="stylesheet" type="text/css" href="./css/global.css">
     <link rel="stylesheet" type="text/css" href="./css/upload.css">
     <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/videos.css">
 </head>
 <body>
     <?php include("header.php");?>
     <strong><h2>Videos</h2></strong>
+    <strong><h3>Recently Uploaded</h3></strong>
+    <div class="vidpage-vidlist">
     <?php
-    $statement = $mysqli->prepare("SELECT * FROM videos ORDER BY views DESC");
+    $statement = $mysqli->prepare("SELECT * FROM videos ORDER BY date DESC LIMIT 6");
     //$statement->bind_param("s", $_POST['fr']); i have no idea what this is but we don't need it
     $statement->execute();
     $result = $statement->get_result();
     if($result->num_rows !== 0){
         while($row = $result->fetch_assoc()) {
             echo '
-                <div class="video container-flex">
-                    <div class="col-1-3 video-thumbnail">
-                    <a href="watch.php?v='.$row['vid'].'">
-                    <img src="content/thumb/' . $row['thumb'] . '">
-                    </a>
-                    </div>
-                    <div class="col-1-3 video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
-                    <div class="col-1-3 video-info">
-                        <div>From: <a href="profile.php?username='.$row['author'].'">'.$row['author'].'</a></div>
-                        <div>Views: <span>'.$row['views'].'</span></div>
-                        <div>Likes: <span>'.$row['likes'].'</span></div>
-                    </div>
-                </div>
-                <hr>';
+            <div class="vidpage-video col-generic">
+                        <div class="video-thumbnail">
+                            <a href="viewvideo.php?v=' . $row['vid'] . '">
+                                <img width="120px" height="72" src="content/thumb/'.$row['vid'].'.jpg" />
+                            </a>
+                        </div>
+                        <div class="vidpage-video-info">
+                            <div class="video-title"><a href="viewvideo.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
+                            <div class="video-author"><a href="profile.php?id='.$row['author'].'">'.$row['author'].'</a></div>
+                        </div>
+                    </div>';
+        }
+    }
+    else{
+        echo "It seems there are no videos here. Why don't you upload one?";
+    }
+    $statement->close();
+    ?>
+    </div>
+    <br>
+    <strong><h3>Most Viewed</h3></strong>
+    <div class="vidpage-vidlist">
+    <?php
+    $statement = $mysqli->prepare("SELECT * FROM videos ORDER BY views DESC LIMIT 6");
+    //$statement->bind_param("s", $_POST['fr']); i have no idea what this is but we don't need it
+    $statement->execute();
+    $result = $statement->get_result();
+    if($result->num_rows !== 0){
+        while($row = $result->fetch_assoc()) {
+            echo '
+            <div class="vidpage-video col-generic">
+                        <div class="video-thumbnail">
+                            <a href="viewvideo.php?v=' . $row['vid'] . '">
+								<img width="120px" height="72" src="content/thumb/'.$row['vid'].'.jpg" />
+                            </a>
+                        </div>
+                        <div class="vidpage-video-info">
+                            <div class="video-title"><a href="viewvideo.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
+                            <div class="video-author"><a href="profile.php?id='.$row['author'].'">'.$row['author'].'</a></div>
+                        </div>
+                    </div>';
+        }
+    }
+    else{
+        echo "It seems there are no videos here. Why don't you upload one?";
+    }
+    $statement->close();
+    ?>
+    </div>
+    <br>
+    <strong><h3>Most Liked</h3></strong>
+    <div class="vidpage-vidlist">
+    <?php
+    $statement = $mysqli->prepare("SELECT * FROM videos ORDER BY likes DESC LIMIT 6");
+    //$statement->bind_param("s", $_POST['fr']); i have no idea what this is but we don't need it
+    $statement->execute();
+    $result = $statement->get_result();
+    if($result->num_rows !== 0){
+        while($row = $result->fetch_assoc()) {
+            echo '
+            <div class="vidpage-video col-generic">
+                        <div class="video-thumbnail">
+                            <a href="viewvideo.php?v=' . $row['vid'] . '">
+                                <img width="120px" height="72" src="content/thumb/'.$row['vid'].'.jpg" />
+                            </a>
+                        </div>
+                        <div class="vidpage-video-info">
+                            <div class="video-title"><a href="viewvideo.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
+                            <div class="video-author"><a href="profile.php?id='.$row['author'].'">'.$row['author'].'</a></div>
+                        </div>
+                    </div>';
         }
     }
     else{

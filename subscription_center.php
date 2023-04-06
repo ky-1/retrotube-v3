@@ -8,6 +8,11 @@
 <body>
 	<?php
 	include("header.php");
+    if(!isset($_SESSION['profileuser3'])) {
+        echo('<script>
+        window.location.href = "index.php";
+        </script>');	
+    }
 	?>
 	<h2>Your Subscriptions</h2>
     <div class="container-flex">

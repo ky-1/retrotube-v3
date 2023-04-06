@@ -102,6 +102,11 @@
 			    }
 			    $statement->close();
 			}
+			if(!isset($_SESSION['profileuser3'])) {
+				echo('<script>
+				window.location.href = "index.php";
+				</script>');	
+			}
 			?>
 		</div>
 	</div>
