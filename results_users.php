@@ -41,8 +41,8 @@
 		    	 		?>
                         <div class='user'>
 				    	<div class='user-info'>
-						    <div><a href='./profile.php?user=<?php echo $value['username'];?>'><?php echo $value['username'];?></a></div>
-						    <div><span class='black'><?php echo $value['subscribers'];?></span> subscribers</div>
+						    <div><a href='./profile.php?user=<?php echo $value['username']; $rows = getSubscribers($value['username'], $mysqli);?>'><?php echo $value['username'];?></a></div>
+						    <div><span class='black'><?php echo $rows;?></span> subscribers</div>
 					    </div>
 					    <div><a href='./profile.php?user=<?php echo $value['username'];?>'><img class='user-picture' src='./pfp/<?php echo $value['id'];?>'></a></div>
 				    </div>
