@@ -28,7 +28,7 @@
                         </div>
                         <div class="vidpage-video-info">
                             <div class="video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
-                            <div class="video-author"><a href="profile.php?id='.$row['author'].'">'.$row['author'].'</a></div>
+                            <div class="video-author"><a href="profile.php?user='.$row['author'].'">'.$row['author'].'</a></div>
                         </div>
                     </div>';
         }
@@ -58,7 +58,7 @@
                         </div>
                         <div class="vidpage-video-info">
                             <div class="video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
-                            <div class="video-author"><a href="profile.php?id='.$row['author'].'">'.$row['author'].'</a></div>
+                            <div class="video-author"><a href="profile.php?user='.$row['author'].'">'.$row['author'].'</a></div>
                         </div>
                     </div>';
         }
@@ -88,7 +88,7 @@
                         </div>
                         <div class="vidpage-video-info">
                             <div class="video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
-                            <div class="video-author"><a href="profile.php?id='.$row['author'].'">'.$row['author'].'</a></div>
+                            <div class="video-author"><a href="profile.php?user='.$row['author'].'">'.$row['author'].'</a></div>
                         </div>
                     </div>';
         }
