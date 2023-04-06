@@ -37,6 +37,8 @@
 	<div class="col-1-3">
 	    <div class="card message">
 	    Viewing channels may still be buggy. Report any bugs to the owner.
+		<hr>
+		<a href="subscription_center.php">View your subscriptions here</a>.
 	    </div>
 	</div>
 	</div>
