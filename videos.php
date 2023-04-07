@@ -23,13 +23,13 @@
             echo '
             <div class="vidpage-video col-generic">
                         <div class="video-thumbnail">
-                            <a href="viewvideo.php?v=' . $row['vid'] . '">
+                            <a href="watch.php?v=' . $row['vid'] . '">
                                 <img width="120px" height="72" src="content/thumb/'.$row['vid'].'.jpg" />
                             </a>
                         </div>
                         <div class="vidpage-video-info">
-                            <div class="video-title"><a href="viewvideo.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
-                            <div class="video-author"><a href="profile.php?id='.$row['author'].'">'.$row['author'].'</a></div>
+                            <div class="video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
+                            <div class="video-author"><a href="profile.php?user='.$row['author'].'">'.$row['author'].'</a></div>
                         </div>
                     </div>';
         }
@@ -53,13 +53,13 @@
             echo '
             <div class="vidpage-video col-generic">
                         <div class="video-thumbnail">
-                            <a href="viewvideo.php?v=' . $row['vid'] . '">
+                            <a href="watch.php?v=' . $row['vid'] . '">
 								<img width="120px" height="72" src="content/thumb/'.$row['vid'].'.jpg" />
                             </a>
                         </div>
                         <div class="vidpage-video-info">
-                            <div class="video-title"><a href="viewvideo.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
-                            <div class="video-author"><a href="profile.php?id='.$row['author'].'">'.$row['author'].'</a></div>
+                            <div class="video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
+                            <div class="video-author"><a href="profile.php?user='.$row['author'].'">'.$row['author'].'</a></div>
                         </div>
                     </div>';
         }
@@ -83,13 +83,13 @@
             echo '
             <div class="vidpage-video col-generic">
                         <div class="video-thumbnail">
-                            <a href="viewvideo.php?v=' . $row['vid'] . '">
+                            <a href="watch.php?v=' . $row['vid'] . '">
                                 <img width="120px" height="72" src="content/thumb/'.$row['vid'].'.jpg" />
                             </a>
                         </div>
                         <div class="vidpage-video-info">
-                            <div class="video-title"><a href="viewvideo.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
-                            <div class="video-author"><a href="profile.php?id='.$row['author'].'">'.$row['author'].'</a></div>
+                            <div class="video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
+                            <div class="video-author"><a href="profile.php?user='.$row['author'].'">'.$row['author'].'</a></div>
                         </div>
                     </div>';
         }
