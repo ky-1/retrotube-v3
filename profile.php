@@ -3,12 +3,16 @@
 <html data-theme="light">
     <head>
         <title><?php 
-            $statement = $mysqli->prepare("SELECT username FROM users WHERE username = ? LIMIT 1");
+            $statement = $mysqli->prepare("SELECT * FROM users WHERE username = ? LIMIT 1");
             $statement->bind_param("s", $_GET['user']);
             $statement->execute();
             $result = $statement->get_result();
             while($row = $result->fetch_assoc()) {
+                if ($row['banned'] == '1') {
+                    header("Location: index.php?err=This account has been suspended by YuoTueb staff<br/>Reason: ".$row['banreason']);
+              }else{
                 echo $row['username']."'s Profile - YuoTueb";
+              }
             }
             $statement->close();
         ?></title>

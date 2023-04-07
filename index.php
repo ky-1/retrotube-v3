@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php include 'global.php';?>
+<?php include 'bancheck.php';?>
 <head>
     <link rel="icon" type="image/png" href="./favicon.ico">
     <link rel="stylesheet" type="text/css" href="./css/global.css">
@@ -7,6 +8,20 @@
 </head>
 <body>
     <?php include("header.php"); ?>
+    <?php 
+    error_reporting(~E_ALL & ~E_NOTICE);
+        if(!is_null($_GET['err'])) {
+            $err = $_GET['err'];
+        echo '<div style="display: none;" class="errmsg">
+                <center>'.$err.'</center>
+            </div>';
+         }   
+         if(isset($_GET['err'])) {
+            $err = $_GET['err'];
+   echo '<div class="errmsg">
+                <center>'.$err.'</center>
+            </div>'; 
+ } ?>
     <div class="container-flex">
         <div class="col-2-3">
             <h4 style="padding:0;margin:0;margin-bottom:2px;color:#4A4A4A;">Promoted Videos</h4>

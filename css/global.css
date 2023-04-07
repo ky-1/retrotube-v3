@@ -14,6 +14,8 @@ html {
     --card-blue-1: 180deg, white, #acbbe0;
     --card-gray-1: #eee;
     --card-gray-2: #ccc;
+    --card-redb-1: #ffc7c7;
+    --card-redb-2: #eb5757;
     --inputlol: #fff;
     --colblack: #000;
 }
@@ -34,6 +36,8 @@ html[data-theme='dark'] {
     --card-blue-2: #205081;
     --card-gray-1: rgb(53, 53, 53);
     --card-gray-2: rgb(73, 73, 73);
+    --card-redb-1: #ffc7c7;
+    --card-redb-2: #eb5757;
     --inputlol: #161616;
     --colblack: #cecece;
 }
@@ -54,6 +58,8 @@ html[data-theme='olive'] {
     --card-blue-2: #9ccc66;
     --card-gray-1: #eee;
     --card-gray-2: #ccc;
+    --card-redb-1: #ffc7c7;
+    --card-redb-2: #eb5757;
     --inputlol: #fff;
     --colblack: #000;
 }
@@ -73,6 +79,8 @@ html[data-theme='logo'] {
     --card-blue-1: 180deg, white, #acbbe0;
     --card-gray-1: #eee;
     --card-gray-2: #ccc;
+    --card-redb-1: #ffc7c7;
+    --card-redb-2: #eb5757;
     --inputlol: #fff;
     --colblack: #000;
 }
@@ -202,6 +210,14 @@ a {
     background-color: var(--card-gray-1);
     border: 1px solid var(--card-gray-2);
 }
+.errmsg {
+    color: var(--txtcol);
+    background-color: var(--card-redb-1);
+    border: 1px solid var(--card-redb-2);
+    padding: 7px 15px;
+    font-size: 12px;
+    border-radius: 7px;
+}
 .input-group label{
     font-weight: bold;
     text-align: right;
@@ -226,4 +242,11 @@ input{
 }
 .black{
     color: var(--colblack);
+}
+.banned{
+    width: 550px;
+    margin: auto;
+    border: 1px solid black;
+    padding: 7px;
+    margin-bottom: 20px;
 }

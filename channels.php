@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php include 'global.php';?>
+<?php include 'bancheck.php';?>
 <head data-theme="light">
 	<link rel="stylesheet" type="text/css" href="./css/global.css">
 	<link rel="stylesheet" type="text/css" href="./css/channels.css">

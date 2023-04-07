@@ -42,6 +42,7 @@
                                     if($result->num_rows !== 0){
                                     while($row = $result->fetch_assoc()){
                                             $hash = $row['password'];
+                                            if($row['banned'] = 0) {
                                             if(password_verify($_POST['password'], $hash)){
                                                 session_start();
                                                 $_SESSION["profileuser3"] = htmlspecialchars($_POST['name']);

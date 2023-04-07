@@ -1,4 +1,5 @@
 <?php include("global.php");?>
+<?php include 'bancheck.php';?>
 <!DOCTYPE html>
 <html data-theme="light">
 <head>

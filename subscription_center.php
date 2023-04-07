@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php include 'global.php';?>
+<?php include 'bancheck.php';?>
 <head>
     <title>Your Subscriptions - YuoTueb</title>
 	<link rel="stylesheet" type="text/css" href="./css/global.css">
