@@ -8,7 +8,8 @@ if(!isset($_SESSION['profileuser3']) || !isset($_GET['user'])) {
 }
 
 if($name == $_SESSION['profileuser3']) {
-    die("You can't subscribe to yourself!");
+    header("Location: index.php?err=You can't subscribe to yourself!")
+    //die("You can't subscribe to yourself!");
 }
 
 $stmt = $mysqli->prepare("SELECT * FROM subscribers WHERE sender = ? AND receiver = ?");
