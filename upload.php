@@ -74,9 +74,9 @@
         exit();
     }
        if(!isset($_SESSION['profileuser3'])) {
-        <script>
+        echo '<script>
         window.location.href = "alogin.php";
-        </script>
+        </script>';
        }
        function randstr($len, $charset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-"){
            return substr(str_shuffle($charset),0,$len);
