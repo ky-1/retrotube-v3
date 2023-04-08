@@ -68,11 +68,15 @@
         </script>');
     }
     if (strlen($_POST['videotitle']) > 15) {
-        echo('Video title too long.');
+        echo('<script>
+        window.location.href = "index.php?err=Video title too long.";
+        </script>');
         exit();
     }
        if(!isset($_SESSION['profileuser3'])) {
-           die("Login to upload videos...");
+        <script>
+        window.location.href = "alogin.php";
+        </script>
        }
        function randstr($len, $charset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-"){
            return substr(str_shuffle($charset),0,$len);
