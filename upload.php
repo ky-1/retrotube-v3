@@ -53,9 +53,9 @@
     if(empty($_POST['fileToUpload'])) {
         error_reporting(E_ALL);
 ini_set('display_errors', '1');
-        //echo('<script>
-        //window.location.href = "index.php?err=No video file.";
-        //</script>');
+        echo('<script>
+        window.location.href = "index.php?err=No video file.";
+        </script>');
     }
     if(empty($_POST['videotitle'])) {
         echo('<script>
