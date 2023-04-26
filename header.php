@@ -56,7 +56,7 @@ margin-left: -770px;
 			content: var(--rlogo);
 		}
 	</style>
-	<a class="brand-logo" href="."><img class="lgoolol" src="retrotube.gif"></a>
+	<a class="brand-logo" href="."><img class="lgoolol" src="revidlog.gif"></a>
 	<?php
       if(!$loggedIn) {
         echo '<div class="menu-element"><strong><a href="./aregister.php">Sign Up</a></strong> | <a href="./alogin.php">Login</a> | <a href="./help.php">Help</a></div>';
