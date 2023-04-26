@@ -42,8 +42,11 @@
                                } else { 
                                 echo '<div><a href="unsubscribe.php?user='.$_GET['user'].'"><img src="buttonunsub.png"></a></div></div>';
                                  } 
-                                } if ($_SESSION['profileuser3'] == $_GET['user']) {
-                                    echo "<div><a onclick='alert('You are not logged in.')'><img src='thisisyou.png'></a></div></div>";
+                                } else {
+echo "<div><a onclick='alert('You are not logged in.')'><img src='subscribe.png'></a></div></div>";
+                            }
+                if ($_SESSION['profileuser3'] == $_GET['user']) {
+                                    echo "<div><a><img src='thisisyou.png'></a></div></div>";
                                 }
                                  ?>
                                 <?php
