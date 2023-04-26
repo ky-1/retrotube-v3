@@ -43,7 +43,7 @@
                                 echo '<div><a href="unsubscribe.php?user='.$_GET['user'].'"><img src="buttonunsub.png"></a></div></div>';
                                  } 
                                 } else {
-                                    echo "<div><a onclick='alert('You are not logged in.')'><img src='buttonsub.png'></a></div></div>";
+                                    echo "<div><a onclick='alert('You are not logged in.')'><img src='thisisyou.png'></a></div></div>";
                                 }
                                  ?>
                                 <?php
