@@ -36,6 +36,9 @@
                             <div class=\"user-name\"><a href=\"profile.php?id=".$row["id"]."\">".$row["username"]."</a></div>
                             <div><span class=\"black\">".$rows."</span> subscribers</div>"; $username = $row['username'];}?>
                             <?php 
+                 if ($_SESSION['profileuser3'] == $_GET['user']) {
+                                    echo "<div><a><img src='thisisyou.png'></a></div></div>";
+                                } else {
                             if(isset($_SESSION['profileuser3'])) {
                                 if(ifSubscribed($_SESSION['profileuser3'], $_GET['user'], $mysqli) == false) {
                                echo '<div><a href="subscribe.php?user='.$_GET['user'].'"><img src="buttonsub.png"></a></div></div>';
@@ -45,9 +48,7 @@
                                 } else {
 echo "<div><a onclick='alert('You are not logged in.')'><img src='subscribe.png'></a></div></div>";
                             }
-                if ($_SESSION['profileuser3'] == $_GET['user']) {
-                                    echo "<div><a><img src='thisisyou.png'></a></div></div>";
-                                }
+                 }
                                  ?>
                                 <?php
                     $statement = $mysqli->prepare("SELECT * FROM `videos` WHERE `author` = ?");
