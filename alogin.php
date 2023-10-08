@@ -28,6 +28,7 @@
                         <div></div>
                         <div class="red">
                             <?php
+                            session_destroy();
                                 if(isset($_SESSION['profileuser3'])) {
                                     echo('<script>
                                          window.location.href = "index.php";
@@ -44,7 +45,6 @@
                                             $hash = $row['password'];
                                             if(!isset($row['banned'])) {
                                             if(password_verify($_POST['password'], $hash)){
-                                                session_destroy();
                                                 session_start();
                                                 $_SESSION["profileuser3"] = htmlspecialchars($_POST['name']);
                                                 echo('<script>
