@@ -9,7 +9,7 @@
 <body>
     <?php include("header_home.php"); ?>
     <?php 
-    // error_reporting(~E_ALL & ~E_NOTICE);
+     error_reporting(~E_ALL & ~E_NOTICE);
         if(!is_null($_GET['err'])) {
             $err = $_GET['err'];
         echo '<div style="display: none;" class="errmsg">
