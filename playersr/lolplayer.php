@@ -39,7 +39,7 @@ while($row = $result->fetch_assoc()) {
     echo $row['filename']; } ?>" onclick="playVid()" style="width:100%; height:100%;">
     </video>
     <img src="./assets/playbutton.png" id="playbut" style="position: absolute;left: 43%;top: 38%;width: 83px;opacity: 0.9;" onclick="playVid();">
-    <img src="./fulp_spinner.webp" id="buffic" style="display: none;position: absolute;left: 47%;top: 42%;width: 36px;opacity: 0.9;">
+    <img src="./fulp_spinner.webp" id="buffic" style="display: none;position: absolute;left: 47%;top: 42%;width: 36px;opacity: 0;">
     <div class="controls" style="background-color:white;">
     <div style="float: left; height: 100%; text-align: left;">
     <div class="playButton" id="playpause" onclick="playVid();"></div>
