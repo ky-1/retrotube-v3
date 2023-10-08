@@ -67,7 +67,7 @@
         window.location.href = "index.php?err=No description.";
         </script>');
     }
-    if (strlen($_POST['videotitle']) > 15) {
+    if (strlen($_POST['videotitle']) > 25) {
         echo('<script>
         window.location.href = "index.php?err=Video title too long.";
         </script>');
@@ -120,11 +120,12 @@
                unlink("content/unprocessed/$v_id.mp4");
                $target_thumb = "content/thumb/".$v_id.".jpg";
                $thumbcmd = "$ffmpeg -i $processed_file -vf \"thumbnail\" -frames:v 1 -s 120x70 $target_thumb";
+               $length = round(exec("$ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ".$processed_file));
                $video = $_POST['videotitle'];
                $user = $_SESSION['profileuser3'];
              //  $v_id = randstr(11);
-               $statement = $mysqli->prepare("INSERT INTO videos (videotitle, vid, description, author, filename, thumb, date) VALUES (?, ?, ?, ?, ?, ?, now())");
-               $statement->bind_param("ssssss", $videotitle, $v_id, $description, $author, $filename, $thumb);
+               $statement = $mysqli->prepare("INSERT INTO videos (videotitle, vid, description, author, filename, thumb, duration, date) VALUES (?, ?, ?, ?, ?, ?, ?, now())");
+               $statement->bind_param("sssssss", $videotitle, $v_id, $description, $author, $filename, $thumb, $length);
                $videotitle = htmlspecialchars($_POST['videotitle']);
                $description = str_replace(PHP_EOL, "<br>", htmlspecialchars($_POST['bio']));
                $author = htmlspecialchars($_SESSION['profileuser3']);

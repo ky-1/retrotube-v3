@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 <body>
-    <?php include("header.php"); ?>
+    <?php include("header_home.php"); ?>
     <?php 
     error_reporting(~E_ALL & ~E_NOTICE);
         if(!is_null($_GET['err'])) {
@@ -36,6 +36,7 @@
                         while($row = $result->fetch_assoc()) {
                             echo '
                             <div class="featured-video col-generic">
+                            <div class="trollsteranim4">
                                 <div class="video-thumbnail">
                                     <a href="watch.php?v=' . $row['vid'] . '">
                                             <img src="content/thumb/' . $row['thumb'] . '">
@@ -45,6 +46,7 @@
                                     <div class="video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
                                     <div class="video-author"><a href="profile.php?user='.$row['author'].'">'.$row['author'].'</a></div>
                                 </div>
+                            </div>
                             </div>';
                             $howmany++;
                         }
@@ -94,6 +96,11 @@
                 $result = $statement->get_result();
                 if($result->num_rows !== 0){
                     while($row = $result->fetch_assoc()) {
+                        if($row['duration'] > 3600) {
+                            $lengthlist = floor($row['duration'] / 3600) . ":" . gmdate("i:s", $row['duration'] % 3600);
+                          } else { 
+                            $lengthlist = gmdate("i:s", $row['duration'] % 3600) ;
+                          };
                         echo '
                             <div class="video container-flex">
                                 <div class="col-1-3 video-thumbnail">
@@ -101,11 +108,12 @@
                                 <img src="content/thumb/' . $row['thumb'] . '">
                                 </a>
                                 </div>
-                                <div class="col-1-3 video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
+                                <div class="col-1-3 video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a><br><span style="font-size: 12px;">'.$row['description'].'</span></div>
                                 <div class="col-1-3 video-info">
                                     <div>From: <a href="profile.php?user='.$row['author'].'">'.$row['author'].'</a></div>
                                     <div>Views: <span>'.$row['views'].'</span></div>
                                     <div>Likes: <span>'.$row['likes'].'</span></div>
+                                    <div>Time: <span><b>'.$lengthlist.'</b></span></div>
                                 </div>
                             </div>
                             <hr>';
@@ -119,6 +127,22 @@
             </div>
         </div>
         <div class="col-1-3">
+        <?php
+            if(!$loggedIn) {
+        echo('<div style="font-size: 12px; border: 1px solid rgb(153, 153, 153); padding: 5px;">
+	<div style="border: 1px solid rgb(204, 204, 204); padding: 4px; background: #eee; text-align: center;">
+			<strong>Want to customize this homepage?
+</strong><br>
+
+				<a href="asignup.php"><strong>Sign up for a KarimTube Account</strong></a>
+
+			<div style="border-bottom: 1px dotted #999; margin-bottom: 5px; margin-top: 5px;"></div>
+			<span class="grayText smallText">
+			<a href="alogin.php">Sign in with your KarimTube Account!</a>
+			</span>
+
+		<a href="#" onclick="window.open(\'/t/help_gaia\',\'login_help\',\'width=580,height=480,resizable=yes,scrollbars=yes,status=0\').focus();" rel="nofollow"><img src="https://web.archive.org/web/20090301060115im_/http://s.ytimg.com/yt/img/pixel-vfl73.gif" border="0" alt="" style="background: transparent url(https://web.archive.org/web/20090301060115im_/http://s.ytimg.com/yt/img/help-vfl69806.png) no-repeat scroll 0 0; width: 16px; height: 16px;vertical-align: middle;"></a>
+	</div>  		</div>');}?>
         <?php
             if($loggedIn) {
                 $rows = getSubscribers($_SESSION['profileuser3'], $mysqli);
@@ -141,7 +165,7 @@
             }?>
             <?php
             if(!$loggedIn) {
-                echo '<div class="card login">
+               /* echo '<div class="card login">
                 <div class="card-header">
                     Member Login
                 </div>
@@ -161,15 +185,15 @@
                         </div>
                     </form>
                 </div>
-            </div>';
+            </div>'; */
             } else {
             }
             ?>
             <div class="card message">
                 <div class="card-header">What's New</div>
-                YuoTueb has returned with an improved source code. The uploader now creates thumbnails as images and compresses videos. 
+                RETROTube has been relaunched as KarimTube.<br><br>+ Header improvements<br>+ Added CrazyTube player (thank you tyre)<br>+ Removed UGC ads (took up too much space)<br>+ Added video duration
             </div>
-            <iframe width="300" height="300" style="border:none" src="ugc.html" name="kupbord"></iframe>
+            <!-- <iframe width="300" height="300" style="border:none" src="ugc.html" name="kupbord"></iframe> -->
         </div>
         </div>
     <?php include("footer.php") ?>

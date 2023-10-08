@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/channels.css">
 </head>
 <body>
-	<?php include "header.php"; ?>
+	<?php include "header_channel.php"; ?>
 		<div class="container-flex">
 	    <div class="col-2-3">
 			<?php

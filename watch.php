@@ -18,29 +18,29 @@
 
 <meta name="keywords" content="">
 
-<meta property="og:url" content="https://retrotube.ml/watch.php?v='.$row['vid'].'">
+<meta property="og:url" content="/watch.php?v='.$row['vid'].'">
 <meta property="og:title" content="'.$row['videotitle'].'">
 <meta property="og:description"
     content="'.$row['description'].'">
 <meta property="og:type" content="video">
-<meta property="og:image" content="https://retrotube.ml/content/thumb/'.$row['vid'].'.jpg">
-<meta property="og:video" content="https://retrotube.ml/content/video/'.$row['vid'].'.mp4">
+<meta property="og:image" content="/content/thumb/'.$row['vid'].'.jpg">
+<meta property="og:video" content="/content/video/'.$row['vid'].'.mp4">
 <meta property="og:video:width" content="1280">
 <meta property="og:video:height" content="720">
 <meta property="og:video:type" content="video/mp4" />
 <meta name="twitter:card" value="player">
-<meta name="twitter:player" value="https://retrotube.ml/content/video/'.$row['vid'].'.mp4">
+<meta name="twitter:player" value="/content/video/'.$row['vid'].'.mp4">
 <meta property="twitter:player:width" content="1280">
 <meta property="twitter:player:height" content="720">
 <meta name="title" content="'.$row['videotitle'].'">
-<title>'.$row['videotitle'].' - YuoTueb</title> ';
+<title>'.$row['videotitle'].' - hyperion</title> ';
 }
 $statement->close();
 ?>
 </head>
 </html>
 <?php
-include("header.php");
+include("header_video.php");
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -60,7 +60,7 @@ error_reporting(E_ALL);
         while($row = $result->fetch_assoc()) {
             echo '
             <h2>' . $row['videotitle'] . '</h2>
-            <iframe id="vid-player" style="border: 0px; overflow: hidden;" src="player/lolplayer.php?v=' . $_GET['v'] . '" height="360px" width="480px"></iframe> <br><br>
+            <iframe id="vid-player" style="border: 0px; overflow: hidden;" src="playersr/lolplayer.php?v=' . $_GET['v'] . '" height="360px" width="480px"></iframe> <br><br>
                 <script>
                     var vid = document.getElementById(\'vid-player\').contentWindow.document.getElementById(\'video-stream\');
                     function hmsToSecondsOnly(str) {
@@ -108,7 +108,7 @@ error_reporting(E_ALL);
         }
         ?>
 
-<div class="topRight" style="margin-left: 500px; margin-top: -336px;">
+<div class="topRight" style="float: right; margin-left: 500px; margin-top: -386px;">
 <div class="card gray">
         <?php
             $stmt = $mysqli->prepare("SELECT * FROM videos WHERE vid = ?");
@@ -120,7 +120,7 @@ error_reporting(E_ALL);
                 echo "Added: " . $row['date'] . "<br>";
                 echo "" . $row['views'] . " views<br>";
                 echo "" . $row['likes'] . " likes<br>";
-                echo "By: " . $row['author'] . "<br><br>";
+                echo "By: <a href='profile.php?user=" . $row['author'] . "'>" . $row['author'] . "</a><br><br>";
                 echo "<br>'" . $row['description'] . "'<br>";
                 echo "<a href='likevideo.php?id=" . $row['vid'] . "'>Like Video</a>";
             }
@@ -160,9 +160,9 @@ error_reporting(E_ALL);
         mysqli_query($mysqli, "UPDATE videos SET views = views+1 WHERE vid = '" . $videoid . "'");
         $stmt->close();
         }        
-        echo '<hr style="
+        echo '<hr style="/*
     margin-top: 50px;
-">';
+*/">';
             $stmt = $mysqli->prepare("SELECT * FROM videos WHERE vid = ?");
             $stmt->bind_param("s", $_GET['v']);
             $stmt->execute();
@@ -187,7 +187,7 @@ error_reporting(E_ALL);
             }
 
         echo '<h3 style="
-    margin-top: 32px;
+/*    margin-top: 32px; */
 ">Comments &amp; Responses</h3>';
 ?>
 

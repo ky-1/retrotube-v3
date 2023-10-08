@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./css/videos.css">
 </head>
 <body>
-    <?php include("header.php");?>
+    <?php include("header_video.php");?>
     <strong><h2>Videos</h2></strong>
     <strong><h3>Recently Uploaded</h3></strong>
     <div class="vidpage-vidlist">

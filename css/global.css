@@ -4,20 +4,30 @@ html {
     --header-button-1: #ffffff;
     --header-button-2: #acbbe0;
     --bg: #fff;
-    --rlogo: url(retrotube.gif);
+    --rlogo: url(karimtubesmall.png);
     --hr: #aaa;
     --header-combo: linear-gradient(#bbb, #ddd);
     --card-msg-1: #ffffdd;
     --card-msg-2: #ffddaa;
     --txtcol: #000;
     --buttoncol: rgb(216, 216, 216);
-    --card-blue-1: 180deg, white, #acbbe0;
+    --card-blue-1: #cdd8f1;
+    --card-blue-2: #284a9e;
     --card-gray-1: #eee;
     --card-gray-2: #ccc;
-    --card-redb-1: #ffc7c7;
+    /* --card-redb-1: #ffc7c7; */
+    --card-redb-1: #FDADAC;
     --card-redb-2: #eb5757;
     --inputlol: #fff;
     --colblack: #000;
+    --main-a: #003399;
+    --gray-a: #606060;
+    --header-border: #acbbe0;
+    --header-borderg: #bbb;
+    --header-button-1: #ffffff;
+    --header-button-2: #acbbe0;
+    --header-buttong-1: #ffffff;
+    --header-buttong-2: #bbb;
 }
 html[data-theme='dark'] {
     --main-a: #cecece;
@@ -88,9 +98,9 @@ input {
     background-color: var(--inputlol);
 }
 
-* {
+/* * {
     color: var(--txtcol);
-}
+} */
 
 button {
     background-color: var(--buttoncol);
@@ -101,6 +111,7 @@ body {
     background-color: var(--bg);
     padding: 0px;
     margin: auto;
+    /* width: 60.625em; */
     width: 50em;
     font-family: Tahoma, Verdana, Arial, sans-serif;
 }
@@ -210,14 +221,25 @@ a {
     background-color: var(--card-gray-1);
     border: 1px solid var(--card-gray-2);
 }
-.errmsg {
+ .errmsg {
     color: var(--txtcol);
     background-color: var(--card-redb-1);
-    border: 1px solid var(--card-redb-2);
+    /* border: 1px solid var(--card-redb-2); */
     padding: 7px 15px;
+    font-size: 13px;
+    margin-top: 3px;
+    /* border-radius: 7px; */
+    font-weight: normal;
+} 
+/* .errmsg {
+    border-width:3px; 
+    border-style:solid; 
+    border-color:#FF0000; 
+    color:#FF0000 !important; 
+    background-color:#FFFFFF; 
+    padding: 6px;
     font-size: 12px;
-    border-radius: 7px;
-}
+} 2007 styled */
 .input-group label{
     font-weight: bold;
     text-align: right;
@@ -249,4 +271,70 @@ input{
     border: 1px solid black;
     padding: 7px;
     margin-bottom: 20px;
+}
+.featured-video .trollsteranim4 {
+    animation: wait .7s linear, rotateOnX 1s .7s ease-out !important;
+}
+@-webkit-keyframes scale-up-recent {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@keyframes scale-up-recent {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes rotateOnX {
+  from {
+            opacity: 0;
+            -webkit-transform: perspective(5em) rotateX(90deg) scale(.5);
+            transform: perspective(5em) rotateX(90deg) scale(.01);
+    }
+  to {
+            opacity: 1;
+            -webkit-transform: rotateX(0deg) scale(1);
+            transform: rotateX(0deg) scale(1);
+  }
+}
+
+@-webkit-keyframes wait {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes wait {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes rotateOnX {
+  from {
+            opacity: 0;
+            -webkit-transform: perspective(5em) rotateX(90deg) scale(.5);
+            transform: perspective(5em) rotateX(90deg) scale(.01);
+    }
+  to {
+            opacity: 1;
+            -webkit-transform: rotateX(0deg) scale(1);
+            transform: rotateX(0deg) scale(1);
+  }
 }

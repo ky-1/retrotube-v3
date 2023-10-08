@@ -21,7 +21,7 @@
 		.header-buttons{
 			margin: 0px 20%;
 		}
-		.header-button{
+		/* .header-button{
 	        cursor: pointer;
 	        color: var(--main-a);
 	        font-weight: bold;
@@ -34,7 +34,37 @@
 	        text-align: center;
 	        margin: 0px 5px;
 	        text-decoration: none;
-	    }
+	    } */
+		.header-button {
+    cursor: pointer;
+    color: var(--main-a);
+    font-weight: bold;
+    font-size: 14px;
+    padding: 6px 33px;
+    border-radius: 3px 3px 0 0;
+    border: 1px solid var(--header-border);
+    background: linear-gradient(var(--header-button-1), var(--header-button-2));
+    border-bottom: 0px;
+    text-align: center;
+    margin: 0px 4px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px white;
+}
+.header-buttongray {
+    cursor: pointer;
+    color: var(--gray-a);
+    font-weight: bold;
+    font-size: 14px;
+    padding: 6px 33px;
+    border-radius: 3px 3px 0 0;
+    border: 1px solid var(--header-borderg);
+    background: linear-gradient(var(--header-buttong-1), var(--header-buttong-2));
+    border-bottom: 0px;
+    text-align: center;
+    margin: 0px 4px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px white;
+}
 	    .brand-logo:{
 				display: block;
 	    }
@@ -56,7 +86,7 @@ margin-left: -770px;
 			content: var(--rlogo);
 		}
 	</style>
-	<a class="brand-logo" href="."><img class="lgoolol" src="retrotube.gif"></a>
+	<a class="brand-logo" href="."><img class="lgoolol" src="karimtubesmall.png"></a>
 	<?php
       if(!$loggedIn) {
         echo '<div class="menu-element"><strong><a href="./aregister.php">Sign Up</a></strong> | <a href="./alogin.php">Login</a> | <a href="./help.php">Help</a></div>';

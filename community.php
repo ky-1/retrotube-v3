@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="./css/upload.css">
 </head>
 <body>
-    <?php include("header.php");?>
+    <?php include("header_community.php");?>
     <strong><h2>Soon</h2></strong>
     <hr>
 	<?php include("footer.php") ?>
