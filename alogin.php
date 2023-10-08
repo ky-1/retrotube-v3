@@ -44,9 +44,12 @@
                                             $hash = $row['password'];
                                             if(!isset($row['banned'])) {
                                             if(password_verify($_POST['password'], $hash)){
+                                                session_destroy();
                                                 session_start();
                                                 $_SESSION["profileuser3"] = htmlspecialchars($_POST['name']);
-                                                header("Location: .");
+                                                echo('<script>
+                                         window.location.href = "index.php";
+                                         </script>');
                                             }
                                             else {
                                                 echo 'These credentials do not match our records.';

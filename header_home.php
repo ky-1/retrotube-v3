@@ -123,3 +123,13 @@ margin-left: -770px;
 	</form>
 </div>
 </header>
+<div style="
+    color: var(--txtcol);
+    background-color: var(--card-blue-1);
+    border: 1px solid var(--card-blue-2);
+    padding: 7px 15px;
+    font-size: 12px;
+    border-radius: 7px;
+    text-align: center;
+    margin-top: -14px;
+">we're back....<strong>🔥</strong></div>
