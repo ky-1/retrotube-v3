@@ -28,7 +28,6 @@
                         <div></div>
                         <div class="red">
                             <?php
-                            session_destroy();
                                 if(isset($_SESSION['profileuser3'])) {
                                     echo('<script>
                                          window.location.href = "index.php";
