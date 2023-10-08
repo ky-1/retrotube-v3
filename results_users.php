@@ -9,7 +9,8 @@
 <body>
 	<?php
 	include("header.php");
-    echo ("<h2>Search results for &quot;".$_GET["q"]."&quot;</h2>")
+    $re = htmlspecialchars($_GET["q"]);
+    echo ("<h2>Search results for &quot;".$re."&quot;</h2>")
 	?>
 	<?php
     $results = '';

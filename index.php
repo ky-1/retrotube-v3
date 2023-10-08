@@ -134,7 +134,7 @@
 			<strong>Want to customize this homepage?
 </strong><br>
 
-				<a href="asignup.php"><strong>Sign up for a KarimTube Account</strong></a>
+				<a href="aregister.php"><strong>Sign up for a KarimTube Account</strong></a>
 
 			<div style="border-bottom: 1px dotted #999; margin-bottom: 5px; margin-top: 5px;"></div>
 			<span class="grayText smallText">

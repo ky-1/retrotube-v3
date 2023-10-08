@@ -67,7 +67,7 @@
         window.location.href = "index.php?err=No description.";
         </script>');
     }
-    if (strlen($_POST['videotitle']) > 25) {
+    if (strlen($_POST['videotitle']) > 40) {
         echo('<script>
         window.location.href = "index.php?err=Video title too long.";
         </script>');

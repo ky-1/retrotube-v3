@@ -207,7 +207,7 @@ error_reporting(E_ALL);
                 $stmt->execute();
                 $stmt->close();
                 
-                echo "<h3>comment added xd</h3>";
+                echo "<h3>Comment added</h3>";
             }
         }
     ?>
@@ -223,7 +223,7 @@ error_reporting(E_ALL);
         $result = $stmt->get_result();
         if($result->num_rows === 0) echo('No comments.');
         while($row = $result->fetch_assoc()) {
-            echo "<div class='commenttitle'>" . $row['author'] . " (" . $row['date'] . ")</div>" . $row['comment'] . "<br><br>";
+            echo "<div class='commenttitle'><a href='profile.php?user=" . $row['author'] . "'>" . $row['author'] . "</a> (" . $row['date'] . ")</div>" . $row['comment'] . "<br><br>";
         }
         $stmt->close();
     ?>
