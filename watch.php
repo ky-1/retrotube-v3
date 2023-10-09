@@ -222,7 +222,9 @@ error_reporting(E_ALL);
         $result = $stmt->get_result();
         if($result->num_rows === 0) echo('No comments.');
         while($row = $result->fetch_assoc()) {
-            echo "<div class='videocomment'><div class='commenttitle'><a href='profile.php?user=" . $row['author'] . "'><img class='user-picture' src='/pfp/1'></a><strong><a href='profile.php?user=" . $row['author'] . "'>" . $row['author'] . "</a></strong> (" . $row['date'] . ")</div><span>" . $row['comment'] . "</span></div><br><br>";
+            $join = date("F d, Y", strtotime($row["date"]));
+                $uid = idFromUser($row['author']);
+            echo "<div class='videocomment'><div class='commenttitle'><a href='profile.php?user=" . $row['author'] . "'><img class='user-picture' src='/pfp/'.getUserPic($uid).''></a><strong><a href='profile.php?user=" . $row['author'] . "'>" . $row['author'] . "</a></strong> (" . $join . ")</div><span>" . $row['comment'] . "</span></div><br><br>";
         }
         $stmt->close();
     ?>
