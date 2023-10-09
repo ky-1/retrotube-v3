@@ -224,7 +224,7 @@ error_reporting(E_ALL);
         while($row = $result->fetch_assoc()) {
             $join = date("F d, Y", strtotime($row["date"]));
                 $uid = idFromUser($row['author']);
-            echo "<div class='videocomment'><div class='commenttitle'><a href='profile.php?user=" . $row['author'] . "'><img class='user-picture' src='/pfp/'.getUserPic($uid).''></a><strong><a href='profile.php?user=" . $row['author'] . "'>" . $row['author'] . "</a></strong> (" . $join . ")</div><span>" . $row['comment'] . "</span></div><br><br>";
+            echo "<div class='videocomment'><div class='commenttitle'><a href='profile.php?user=" . $row['author'] . "'><img class='user-picture' src='/pfp/".getUserPic($uid)."'></a><strong><a href='profile.php?user=" . $row['author'] . "'>" . $row['author'] . "</a></strong> (" . $join . ")</div><span>" . $row['comment'] . "</span></div><br><br>";
         }
         $stmt->close();
     ?>
