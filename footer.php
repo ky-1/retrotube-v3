@@ -30,5 +30,5 @@ margin-bottom: -42px;
 					</select> <button type="button">Search</button></center></div>
 			</span>
 </center><br>
-<center><p style="font-size: 10px;">© 2007 KarimTube - <a href="themes.php">Themes</a> - <a href="credits.php">Credits</a></p></center>
+<center><p style="font-size: 10px;">© 2007 Revid - <a href="themes.php">Themes</a> - <a href="credits.php">Credits</a></p></center>
 <script src="js/themes-global.js"></script>

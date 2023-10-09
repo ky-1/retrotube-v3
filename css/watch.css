@@ -1,0 +1,44 @@
+.user-picture{
+	width: 45px;
+	height: 45px;
+	float: left;
+	background: #999;
+	border: 1px solid #fff;
+	outline: 1px solid #999;
+	padding: 1px;
+}
+
+.videoinf a{
+	padding: 0px 0px 0px 7px;
+}
+.videoinf span{
+	padding: 0px 0px 0px 7px;
+}
+
+.videocomment .user-picture{
+	width: 35px;
+	height: 35px;
+	float: left;
+	background: #999;
+	border: 1px solid #fff;
+	outline: 1px solid #999;
+	padding: 1px;
+}
+
+.videocomment strong a{
+	padding: 0px 0px 0px 7px;
+}
+
+.videocomment span{
+	padding: 0px 0px 0px 7px;
+}
+
+.videofeatured{
+	color: #000;
+    background-color: var(--card-blue-1);
+    border: 1px solid var(--card-blue-2);
+    padding: 7px 15px;
+    font-size: 12px;
+    border-radius: 7px;
+    text-align: center;
+}

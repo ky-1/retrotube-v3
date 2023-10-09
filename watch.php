@@ -5,6 +5,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="./css/global.css">
     <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/watch.css">
     <?php 
             $statement = $mysqli->prepare("SELECT * FROM videos WHERE vid = ? LIMIT 1");
             $statement->bind_param("s", $_GET['v']);
@@ -109,7 +110,6 @@ error_reporting(E_ALL);
         ?>
 
 <div class="topRight" style="float: right; margin-left: 500px; margin-top: -386px;">
-<div class="card gray">
         <?php
             $stmt = $mysqli->prepare("SELECT * FROM videos WHERE vid = ?");
             $stmt->bind_param("s", $_GET['v']);
@@ -117,16 +117,15 @@ error_reporting(E_ALL);
             $result = $stmt->get_result();
             if($result->num_rows === 0) exit('No rows');
             while($row = $result->fetch_assoc()) {
-                echo "Added: " . $row['date'] . "<br>";
-                echo "" . $row['views'] . " views<br>";
-                echo "" . $row['likes'] . " likes<br>";
-                echo "By: <a href='profile.php?user=" . $row['author'] . "'>" . $row['author'] . "</a><br><br>";
-                echo "<br>'" . $row['description'] . "'<br>";
-                echo "<a href='likevideo.php?id=" . $row['vid'] . "'>Like Video</a>";
+                $join = date("F d, Y", strtotime($row["date"]));
+                $rows = getSubscribers($row['author'], $mysqli);
+                $uid = idFromUser($row['author']);
+                echo '<div class="card gray">
+                <a href="/profile.php?user=' . $row['author'] . '"><img class="user-picture" src="/pfp/'.getUserPic($uid).'"></a><div class="videoinf"><strong><a href="/profile.php?user=' . $row['author'] . '">' . $row['author'] . '</a></strong><br><span><strong>'.$rows.'</strong> subscribers</span><br><span>'.$join.'</span><br><br><strong>' . $row['views'] . '</strong> views<br><strong>' . $row['likes'] . '</strong> likes<br><br>"' . $row['description'] . '"</div><br><a href="likevideo.php?v=NSnUIxfAwv6">Like Video</a>  
+            </div>';
             }
 
         ?>  
-    </div>
         <br>
         <div class="card message">     
         <?php
@@ -223,7 +222,7 @@ error_reporting(E_ALL);
         $result = $stmt->get_result();
         if($result->num_rows === 0) echo('No comments.');
         while($row = $result->fetch_assoc()) {
-            echo "<div class='commenttitle'><a href='profile.php?user=" . $row['author'] . "'>" . $row['author'] . "</a> (" . $row['date'] . ")</div>" . $row['comment'] . "<br><br>";
+            echo "<div class='videocomment'><div class='commenttitle'><a href='profile.php?user=" . $row['author'] . "'><img class='user-picture' src='/pfp/1'></a><strong><a href='profile.php?user=" . $row['author'] . "'>" . $row['author'] . "</a></strong> (" . $row['date'] . ")</div><span>" . $row['comment'] . "</span></div><br><br>";
         }
         $stmt->close();
     ?>

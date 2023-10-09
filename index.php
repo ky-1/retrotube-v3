@@ -134,11 +134,11 @@
 			<strong>Want to customize this homepage?
 </strong><br>
 
-				<a href="aregister.php"><strong>Sign up for a KarimTube Account</strong></a>
+				<a href="aregister.php"><strong>Sign up for a Revid Account</strong></a>
 
 			<div style="border-bottom: 1px dotted #999; margin-bottom: 5px; margin-top: 5px;"></div>
 			<span class="grayText smallText">
-			<a href="alogin.php">Sign in with your KarimTube Account!</a>
+			<a href="alogin.php">Sign in with your Revid Account!</a>
 			</span>
 
 		<a href="#" onclick="window.open(\'/t/help_gaia\',\'login_help\',\'width=580,height=480,resizable=yes,scrollbars=yes,status=0\').focus();" rel="nofollow"><img src="https://web.archive.org/web/20090301060115im_/http://s.ytimg.com/yt/img/pixel-vfl73.gif" border="0" alt="" style="background: transparent url(https://web.archive.org/web/20090301060115im_/http://s.ytimg.com/yt/img/help-vfl69806.png) no-repeat scroll 0 0; width: 16px; height: 16px;vertical-align: middle;"></a>
@@ -191,7 +191,7 @@
             ?>
             <div class="card message">
                 <div class="card-header">What's New</div>
-                RETROTube has been relaunched as KarimTube.<br><br>+ Header improvements<br>+ Added CrazyTube player (thank you tyre)<br>+ Removed UGC ads (took up too much space)<br>+ Added video duration
+                RETROTube has been relaunched as Revid.<br><br>+ Header improvements<br>+ Added CrazyTube player (thank you tyre)<br>+ Removed UGC ads (took up too much space)<br>+ Added video duration<br>+ Watch page updates
             </div>
             <!-- <iframe width="300" height="300" style="border:none" src="ugc.html" name="kupbord"></iframe> -->
         </div>
