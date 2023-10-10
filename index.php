@@ -199,9 +199,9 @@
             ?>
             <div class="card message">
                 <div class="card-header">What's New</div>
-                RETROTube has been relaunched as Revid.<br><br>+ Header improvements<br>+ Added CrazyTube player (thank you tyre)<br>+ Removed UGC ads (took up too much space)<br>+ Added video duration<br>+ Watch page updates
+                RETROTube has been relaunched as Revid.<br><br>+ Header improvements<br>+ Added CrazyTube player (thank you tyre)<br>+ Removed UGC ads (took up too much space)<br>+ Added video duration<br>+ Watch page updates<br>+ Verified program
             </div>
-            <img src="discordbanner.png">
+            <a href="https://discord.gg/rajbccdvmu"><img src="discordbanner.png"><a>
             <!-- <iframe width="300" height="300" style="border:none" src="ugc.html" name="kupbord"></iframe> -->
         </div>
         </div>

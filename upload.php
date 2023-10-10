@@ -115,7 +115,11 @@
            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                rename("$target_file", "content/unprocessed/$v_id.mp4");
                $new_target_file = "content/unprocessed/$v_id.mp4";
-               exec("$ffmpeg -i ".$new_target_file." -vf scale=640x480 -c:v libx264 -b:a 72k  -c:a aac -ar 22050 content/video/$v_id.mp4");
+               if ($_SESSION['verifieduploads'] = true) {
+               exec("$ffmpeg -i ".$new_target_file." -vf scale=640x480 -c:v libx264 -b:a 128k  -c:a aac -ar 22050 content/video/$v_id.mp4");
+               } else {
+                exec("$ffmpeg -i ".$new_target_file." -vf scale=640x360 -c:v libx264 -b:a 72k  -c:a aac -ar 22050 content/video/$v_id.mp4");
+               }
                $processed_file = "content/video/$v_id.mp4";
                unlink("content/unprocessed/$v_id.mp4");
                $target_thumb = "content/thumb/".$v_id.".jpg";

@@ -35,7 +35,7 @@
                                 }
                                 if(!empty($_POST)){
                                     $username = htmlspecialchars($_POST['name']);
-                                    $statement = $mysqli->prepare("SELECT `password` FROM `users` WHERE `username` = ? LIMIT 1");
+                                    $statement = $mysqli->prepare("SELECT `password`, `is_verified` FROM `users` WHERE `username` = ? LIMIT 1");
                                     $statement->bind_param("s", $username);
                                     $statement->execute();
                                     $result = $statement->get_result();
@@ -46,6 +46,11 @@
                                             if(password_verify($_POST['password'], $hash)){
                                                 session_start();
                                                 $_SESSION["profileuser3"] = htmlspecialchars($_POST['name']);
+                                                if ($row['is_verified'] == 1) {
+                                                    $_SESSION['verifieduploads'] = true;
+                                                } else {
+                                                    $_SESSION['verifieduploads'] = false;
+                                                }
                                                 echo('<script>
                                          window.location.href = "index.php";
                                          </script>');

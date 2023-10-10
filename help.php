@@ -16,7 +16,7 @@
 	<h4>Q: What features will you add soon?</h4>
 	<p>
 	A: I'll add some more stuff soon I guess.<br><br>
-	Contact server: https://discord.gg/ku4nsBTnHt<br>
+	Contact server: https://discord.gg/rajbccdvmu<br>
 	</p>
 	<h4 id="verified">Q: How do I join the Verified Program?</h4>
 	<p>A: You have to either be trusted by the Revid staff/community, or have atleast 100 total views on your channel (subject to change). For the latter, you can see it on the homepage while logged in.</p>
