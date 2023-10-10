@@ -153,13 +153,21 @@
                 while($row = $result->fetch_assoc()) {
                 $joined = time_elapsed_string($row['date']);
                 }
+                $statement = $mysqli->prepare("SELECT SUM(views) AS total FROM videos WHERE author = ?");
+                $statement->bind_param("s", $_SESSION['profileuser3']);
+                $statement->execute();
+                $result = $statement->get_result();
+                while($row = $result->fetch_assoc()) {
+                $totalviews = $row["total"];
+                }
                 echo '<div class="card login">
                 <div class="card-header">
                     Welcome, '.$_SESSION['profileuser3'].'!
                 </div>
                 <div class="card-content">
                 You have '.$rows.' subscribers!
-                <br>You joined '.$joined.'.
+                <br>You joined '.$joined.'.<br>
+                You have '.$totalviews.' views!
                 </div>
                 </div>';
             }?>
@@ -193,6 +201,7 @@
                 <div class="card-header">What's New</div>
                 RETROTube has been relaunched as Revid.<br><br>+ Header improvements<br>+ Added CrazyTube player (thank you tyre)<br>+ Removed UGC ads (took up too much space)<br>+ Added video duration<br>+ Watch page updates
             </div>
+            <img src="discordbanner.png">
             <!-- <iframe width="300" height="300" style="border:none" src="ugc.html" name="kupbord"></iframe> -->
         </div>
         </div>
