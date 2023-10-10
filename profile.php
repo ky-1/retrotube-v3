@@ -9,9 +9,9 @@
             $result = $statement->get_result();
             while($row = $result->fetch_assoc()) {
                 if ($row['banned'] == '1') {
-                    header("Location: index.php?err=This account has been suspended by YuoTueb staff<br/>Reason: ".$row['ban_reason']);
+                    header("Location: index.php?err=This account has been suspended by Revid staff<br/>Reason: ".$row['ban_reason']);
               }else{
-                echo $row['username']."'s Profile - YuoTueb";
+                echo $row['username']."'s Profile - Revid";
               }
             }
             $statement->close();
@@ -25,15 +25,20 @@
             <div class="col-2-3">
                 <?php
                    $rows = getSubscribers($_GET['user'], $mysqli);
-                    $statement = $mysqli->prepare("SELECT `username`, `id`, `subscribers` FROM `users` WHERE `username` = ? LIMIT 1");
+                    $statement = $mysqli->prepare("SELECT `username`, `id`, `subscribers`, `is_verified` FROM `users` WHERE `username` = ? LIMIT 1");
                     $statement->bind_param("s", $_GET['user']);
                     $statement->execute();
                     $result = $statement->get_result();
                     while($row = $result->fetch_assoc()) {
+                        if ($row['is_verified'] == 1) {
+                            $verified = '<a style="/*height:15px;display:inline-block;margin-top:2px !important;*/" href="help.php#verified"><img src="verified2.png" width=15px height=15px></a>';
+                        } else {
+                            $verified = '';
+                        }
                         echo "<h3>User ".$row["username"]."</h3>
                         <img class=\"user-pic\" src=\"pfp/".getUserPic($row["id"])."\">
                         <div class=\"user-info\">
-                            <div class=\"user-name\"><a href=\"profile.php?id=".$row["id"]."\">".$row["username"]."</a></div>
+                            <div class=\"user-name\"><a href=\"profile.php?id=".$row["id"]."\">".$row["username"]."</a> ".$verified."</div>
                             <div><span class=\"black\">".$rows."</span> subscribers</div>"; $username = $row['username'];}?>
                             <?php 
                  if ($_SESSION['profileuser3'] == $_GET['user']) {
@@ -67,7 +72,7 @@ echo "<div><a onclick='alert('You are not logged in.')'><img src='buttonsub.png'
                                 </div>
                                 <div class="col-1-3 video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
                                 <div class="col-1-3 video-info">
-                                    <div>Vistas: <span>'.$row['views'].'</span></div>
+                                    <div>Views: <span>'.$row['views'].'</span></div>
                                     <div>Likes: <span>'.$row['likes'].'</span></div>
                                 </div>
                             </div>
