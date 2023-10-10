@@ -139,7 +139,7 @@
                $statement->execute();
                $statement->close();
                $webhookurl = $webhook;
-               $msg = "**$user** just uploaded **$video** => uploaded to a private test instance";
+               $msg = "**$user** just uploaded **$video**\nDescription: $description";
                $json_data = array ('content'=>"$msg");
                $make_json = json_encode($json_data);
                $ch = curl_init( $webhookurl );
