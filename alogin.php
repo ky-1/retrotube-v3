@@ -74,17 +74,18 @@
         <div class="col-1-2">
             <h3>Thanks for making an account!</h3>
             <p>
-Welcome to RETROTube!
+Welcome to Revid!
             </p>
+            When you login, you can:
             <ul>
-                <li>uploading</li>
-                <li>admin panel</li>
-                <li>better code</li>
+                <li>Upload</li>
+                <li>Comment</li>
+                <li>Subscribe</li>
             </ul>
-            and hopefully...
-            <ul>
+            and more...
+            <!-- <ul>
                 <li>opensourcing this project</li>
-            </ul>
+            </ul> -->
         </div>
     </div>
     <hr>

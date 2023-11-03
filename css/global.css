@@ -227,7 +227,7 @@ a {
     /* border: 1px solid var(--card-redb-2); */
     padding: 7px 15px;
     font-size: 13px;
-    margin-top: 3px;
+    margin-top: -15px;
     /* border-radius: 7px; */
     font-weight: normal;
 } 
@@ -338,3 +338,39 @@ input{
             transform: rotateX(0deg) scale(1);
   }
 }
+.whatsnew {
+    text-align: center !important;
+  }
+  .whatsnew > img {
+    margin-bottom: -2px;
+  }
+  a:link, a:visited, a:active {
+    color: #03C;
+}
+.menu-element > a, .menu-element > strong > a {
+    text-decoration: underline;
+}
+/* 2006 header stuff */
+.header-buttongray {
+    background: #DDD !important;
+    text-shadow: none !important;
+        color: #03C !important;
+    text-decoration: underline !important;
+    border: none !important;
+}
+.header-button, .header-buttongray {
+        border-top-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+        text-shadow: none !important;
+    border: none !important;
+}
+.header-button {
+    background: #BCE !important;
+            color: #03C !important;
+    text-decoration: underline !important;
+        border-bottom: 1px solid #FFF !important;
+}
+.header {
+    background: #DDD !important;
+}
+/* end */

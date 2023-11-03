@@ -61,7 +61,8 @@ error_reporting(E_ALL);
         while($row = $result->fetch_assoc()) {
             echo '
             <h2>' . $row['videotitle'] . '</h2>
-            <iframe id="vid-player" style="border: 0px; overflow: hidden;" src="playersr/lolplayer.php?v=' . $_GET['v'] . '" height="360px" width="480px"></iframe> <br><br>
+            <!--<h4 class="vidresponsetitle">in response to <a href="#">Video Title</a></h4>-->
+            <iframe id="vid-player" style="border: 0px; overflow: hidden;" src="viewfinder/index.php?v=' . $_GET['v'] . '" height="370px" width="450px"></iframe> <br><br>
                 <script>
                     var vid = document.getElementById(\'vid-player\').contentWindow.document.getElementById(\'video-stream\');
                     function hmsToSecondsOnly(str) {
@@ -109,7 +110,7 @@ error_reporting(E_ALL);
         }
         ?>
 
-<div class="topRight" style="float: right; margin-left: 500px; margin-top: -386px;">
+<div class="topRight" style="float: right; margin-left: 500px; margin-top: -397px;">
         <?php
             $stmt = $mysqli->prepare("SELECT * FROM videos WHERE vid = ?");
             $stmt->bind_param("s", $_GET['v']);

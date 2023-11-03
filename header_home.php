@@ -97,7 +97,8 @@ margin-left: -770px;
 			    $result = $statement->get_result();
 			    if($result->num_rows === 0) exit('No rows');
 			    while($row = $result->fetch_assoc()) {
-			        echo "<div class=\"menu-element\"><strong>Hello, <a href=\"./profile.php?user=".$row["username"]."\">".$row["username"]."</a></strong> | <a href=\"./account.php\">Account</a> | <a href=\"./#\">History</a> | <a href=\"./help.php\">Help</a> | <a href=\"./alogout.php\">Log Out</a> | <a href=\"./#\">Site: <img src='en.png'></img></a></div>";
+					echo '<div class="menu-element"><strong>Hello, <a href="./profile.php?user='.$row['username'].'">'.$row['username'].'</a></strong> <img style="margin-left:4px;" src="img/mail.gif"> (<a href="#">0</a>) | <a href="alogout.php">Log Out</a> | <a href="help.php">Help</a></div>';
+			        // echo "<div class=\"menu-element\"><strong>Hello, <a href=\"./profile.php?user=".$row["username"]."\">".$row["username"]."</a></strong> | <a href=\"./account.php\">Account</a> | <a href=\"./#\">History</a> | <a href=\"./help.php\">Help</a> | <a href=\"./alogout.php\">Log Out</a> | <a href=\"./#\">Site: <img src='en.png'></img></a></div>";
 			    }
 			    $statement->close();
       }
@@ -123,7 +124,7 @@ margin-left: -770px;
 	</form>
 </div>
 </header>
-<div style="
+<!-- <div style="
     color: var(--txtcol);
     background-color: var(--card-blue-1);
     border: 1px solid var(--card-blue-2);
@@ -132,4 +133,4 @@ margin-left: -770px;
     border-radius: 7px;
     text-align: center;
     margin-top: -14px;
-">we're back....<strong>🔥</strong></div>
+">we're back....<strong>🔥</strong></div> -->

@@ -113,3 +113,37 @@ textarea{
     font-size: 11px;
     color: #333;
   }
+  .whatsnew {
+    text-align: center !important;
+  }
+  .newstitle {
+    color: #03C;
+    margin: auto !important;
+    text-decoration: underline;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .cardwn {
+    text-align: center !important;
+  }
+
+  .contentBox {
+    padding: 6px;
+    border: 1px solid #CCC;
+}
+td {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000;
+}
+h1 {
+    margin-top: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    /* margin-top: 6px; */
+    margin-bottom: 3px;
+    padding: 0px;
+}
+h1 > a {
+    text-decoration: underline;
+}

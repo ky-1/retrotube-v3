@@ -31,7 +31,7 @@
                     $result = $statement->get_result();
                     while($row = $result->fetch_assoc()) {
                         if ($row['is_verified'] == 1) {
-                            $verified = '<a style="/*height:15px;display:inline-block;margin-top:2px !important;*/" href="help.php#verified"><img src="verified2.png" width=15px height=15px></a>';
+                            $verified = '<a style="/*height:15px;display:inline-block;margin-top:2px !important;*/" href="help.php#verified"><img src="verified3.png" width=15px height=15px></a>';
                         } else {
                             $verified = '';
                         }
@@ -42,7 +42,7 @@
                             <div><span class=\"black\">".$rows."</span> subscribers</div>"; $username = $row['username'];}?>
                             <?php 
                  if ($_SESSION['profileuser3'] == $_GET['user']) {
-                                    echo "<div><a><img src='thisisyou.png'></a></div></div>";
+                                    echo "<div><a href='account.php'><img src='editprofile.png'></a></div></div>";
                                 } else {
                             if(isset($_SESSION['profileuser3'])) {
                                 if(ifSubscribed($_SESSION['profileuser3'], $_GET['user'], $mysqli) == false) {
@@ -105,6 +105,7 @@ echo "<div><a onclick='alert('You are not logged in.')'><img src='buttonsub.png'
             </div>
         </div>
         <script src="js/themes-global.js"></script>
+        <?php include("footer.php"); ?>
     </body>
     <?php $mysqli->close();?>
 <html>

@@ -42,3 +42,8 @@
     border-radius: 7px;
     text-align: center;
 }
+.vidresponsetitle {
+    margin-top: -15px;
+    margin-bottom: 5px;
+    padding: 0;
+}
