@@ -3,8 +3,8 @@
 /* player body */
 .player{
     display: grid;
-    width: 450px;
-    height: 370px;;
+    width: 450px !important;
+    height: 370px !important;
     color: #383838;
     user-select: none;
     font-family: Arial, Helvetica, sans-serif;
@@ -30,8 +30,8 @@
 
 .playerScreen {
     background-color: #000;
-    width: 100%;
-    height: 100%;
+    width: 450px !important;
+    height: 370px !important;
     display: grid;
 }
 
@@ -44,19 +44,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    width: 450px !important;
+    height: 370px !important;
 }
 
 .videoContainer {
     display: flex;
     align-items: center;
-    height: 100%;
+    height: 370px !important;
 }
 
 .videoObject {
-    width: 100%;
-    height: 100%;
+    width: 450px !important;
+    height: 330px !important;
     object-fit: fill;
 }
 
