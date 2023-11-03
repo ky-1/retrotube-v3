@@ -9,6 +9,9 @@
         body {
             margin: 0 !important;
         }
+        .videoObject  {
+            height: 330px !important;
+        }
     </style>
     <title>Viewfinder Test Page</title>
 </head>
