@@ -4,7 +4,7 @@ html {
     --header-button-1: #ffffff;
     --header-button-2: #acbbe0;
     --bg: #fff;
-    --rlogo: url(revidcr.png);
+    --rlogo: url(owbyc.png);
     --hr: #aaa;
     --header-combo: linear-gradient(#bbb, #ddd);
     --card-msg-1: #ffffdd;
@@ -351,7 +351,7 @@ input{
     text-decoration: underline;
 }
 /* 2006 header stuff */
-.header-buttongray {
+/* .header-buttongray {
     background: #DDD !important;
     text-shadow: none !important;
         color: #03C !important;
@@ -372,5 +372,5 @@ input{
 }
 .header {
     background: #DDD !important;
-}
+} */
 /* end */

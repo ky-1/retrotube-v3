@@ -62,7 +62,8 @@ error_reporting(E_ALL);
             echo '
             <h2>' . $row['videotitle'] . '</h2>
             <!--<h4 class="vidresponsetitle">in response to <a href="#">Video Title</a></h4>-->
-            <iframe id="vid-player" style="border: 0px; overflow: hidden;" src="viewfinder/index.php?v=' . $_GET['v'] . '" height="370px" width="450px"></iframe> <br><br>
+            <iframe id="vid-player" style="border: 0px; overflow: hidden;" src="playersr/lolplayer.php?v=' . $_GET['v'] . '" height="360px" width="480px"></iframe> <br><br>
+            <!--<iframe id="vid-player" style="border: 0px; overflow: hidden;" src="viewfinder/index.php?v=' . $_GET['v'] . '" height="370px" width="450px"></iframe> <br><br>-->
                 <script>
                     var vid = document.getElementById(\'vid-player\').contentWindow.document.getElementById(\'video-stream\');
                     function hmsToSecondsOnly(str) {

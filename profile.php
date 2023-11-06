@@ -87,6 +87,18 @@ echo "<div><a onclick='alert('You are not logged in.')'><img src='buttonsub.png'
             </div>
             <div class="col-1-3">
                 <?php
+                                    $statement = $mysqli->prepare("SELECT SUM(views) AS total FROM videos WHERE author = ?");
+                                    $statement->bind_param("s", $_GET['user']);
+                                    $statement->execute();
+                                    $result = $statement->get_result();
+                                    if($result->num_rows == 0) {
+                                        $totalviews = 0;
+                                    }
+                                    while($row = $result->fetch_assoc()) {
+                                    $totalviews = $row["total"];
+                                    }
+                                    ?>
+                <?php
                 $statement = $mysqli->prepare("SELECT `description`, `date` FROM `users` WHERE `username` = ? LIMIT 1");
                 $statement->bind_param("s", $_GET['user']);
                 $statement->execute();
@@ -97,7 +109,7 @@ echo "<div><a onclick='alert('You are not logged in.')'><img src='buttonsub.png'
                     <div class='card-header'>Description</div>
                     ".$row["description"]."
                     <hr>
-                    &#9432; Joined ".$join."
+                    &#9432; Joined ".$join."<br>&#128202;&#xFE0E; ".$totalviews." views
                     </div>";
                 }
                 $statement->close();

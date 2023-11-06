@@ -23,12 +23,12 @@ margin-bottom: -42px;
 <span class="footer" style="
     font-size: 13px;
 "><div class="lofsdds">
-<img class="ftc" src="FTC.png">
-</div><img class="igoogle" src="addtoigoogle.png"><center><div class="fareds"></img><input type="text" placeholder=""> <select class="search-type" name="search_type">
+<img class="ftc" src="/FTC.png">
+</div><img class="igoogle" src="/addtoigoogle.png"><center><div class="fareds"></img><input type="text" placeholder=""> <select class="search-type" name="search_type">
 						<option value="">Videos</option>
 						<option value="search_users">Channels</option>
 					</select> <button type="button">Search</button></center></div>
 			</span>
 </center><br>
-<center><p style="font-size: 10px;">© 2007 Revid - <a href="themes.php">Themes</a> - <a href="credits.php">Credits</a></p></center>
+<center><p style="font-size: 10px;">© 2007 OldWire - <a href="/themes.php">Themes</a> - <a href="/credits.php">Credits</a> - <a href="/whats_new.php">What's New</a></p></center>
 <script src="js/themes-global.js"></script>

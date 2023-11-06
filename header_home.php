@@ -37,7 +37,7 @@
 	    } */
 		.header-button {
     cursor: pointer;
-    color: var(--main-a);
+    color: var(--main-a) !important;
     font-weight: bold;
     font-size: 14px;
     padding: 6px 33px;
@@ -52,7 +52,7 @@
 }
 .header-buttongray {
     cursor: pointer;
-    color: var(--gray-a);
+    color: var(--gray-a) !important;
     font-weight: bold;
     font-size: 14px;
     padding: 6px 33px;
@@ -86,7 +86,14 @@ margin-left: -770px;
 			content: var(--rlogo);
 		}
 	</style>
-	<a class="brand-logo" href="."><img class="lgoolol" src="revidcr.png"></a>
+	<a class="brand-logo" href="."><img class="lgoolol" src="oldwire.png"></a>
+	<?php
+                    $statement = $mysqli->prepare("SELECT * FROM inbox WHERE reciever = ? AND `is_read` = 0");
+                $statement->bind_param("s", $_SESSION['profileuser3']);
+                $statement->execute();
+                $result = $statement->get_result();
+                $unread = $result->num_rows;
+					?>
 	<?php
       if(!$loggedIn) {
         echo '<div class="menu-element"><strong><a href="./aregister.php">Sign Up</a></strong> | <a href="./alogin.php">Login</a> | <a href="./help.php">Help</a></div>';
@@ -97,7 +104,7 @@ margin-left: -770px;
 			    $result = $statement->get_result();
 			    if($result->num_rows === 0) exit('No rows');
 			    while($row = $result->fetch_assoc()) {
-					echo '<div class="menu-element"><strong>Hello, <a href="./profile.php?user='.$row['username'].'">'.$row['username'].'</a></strong> <img style="margin-left:4px;" src="img/mail.gif"> (<a href="#">0</a>) | <a href="alogout.php">Log Out</a> | <a href="help.php">Help</a></div>';
+					echo '<div class="menu-element"><strong>Hello, <a href="./profile.php?user='.$row['username'].'">'.$row['username'].'</a></strong> <img style="margin-left:4px;" src="img/mail.gif"> (<a href="/inbox">'.$unread.'</a>) | <a href="account.php">My Account</a> | <a href="#">History</a> | <a href="help.php">Help</a> | <a href="alogout.php">Log Out</a></div>';
 			        // echo "<div class=\"menu-element\"><strong>Hello, <a href=\"./profile.php?user=".$row["username"]."\">".$row["username"]."</a></strong> | <a href=\"./account.php\">Account</a> | <a href=\"./#\">History</a> | <a href=\"./help.php\">Help</a> | <a href=\"./alogout.php\">Log Out</a> | <a href=\"./#\">Site: <img src='en.png'></img></a></div>";
 			    }
 			    $statement->close();

@@ -24,7 +24,7 @@
  } ?>
     <div class="container-flex">
         <div class="col-2-3">
-        <div class="contentBox" style="margin-bottom: 15px;">
+        <!-- <div class="contentBox" style="margin-bottom: 15px;">
 			<table cellpadding="6" cellspacing="0" border="0">
 				<tbody><tr valign="top">
 					<td width="33%">
@@ -41,10 +41,10 @@
 					</td>
 				</tr>
 			</tbody></table>
-		</div>
-            <!--<h4 style="padding:0;margin:0;margin-bottom:2px;color:#4A4A4A;">Promoted Videos</h4>-->
+		</div> -->
+            <h4 style="padding:0;margin:0;margin-bottom:2px;color:#4A4A4A;">Promoted Videos</h4>
             <div class="featured-videos container-flex">
-               <!-- <?php
+                <?php
                     $statement = $mysqli->prepare("SELECT * FROM videos WHERE featured = TRUE LIMIT 4"); //sexy variable names
                     //$statement->bind_param("s", $_POST['fr']);
                     $statement->execute();
@@ -77,7 +77,7 @@
                     else{
                         echo "It seems there are no videos here. Perhaps one of your videos could be here?";
                     }
-                ?>-->
+                ?>
             </div>
             <h3>Featured Videos</h3>
             <div id="hpFeaturedAndSmallTabs">
@@ -215,11 +215,11 @@
             } else {
             }
             ?>
-            <!-- <div class="card message">
+            <div class="card message">
                 <div class="card-header">What's New</div>
-                RETROTube has been relaunched as Revid.<br><br>+ Header improvements<br>+ Added CrazyTube player (thank you tyre)<br>+ Removed UGC ads (took up too much space)<br>+ Added video duration<br>+ Watch page updates<br>+ Verified program
-            </div> -->
-            <div class="card login cardwn">
+                The site has been rebranded (again, sorry). Additionally, we have mostly reverted the 2006 update. Also:<br><br>+ More header improvements<br>+ Added SubRocks 2009 player (yes, not accurate but it's all we got)<br>+ <b>Added Inbox (access by clicking the number next to the mail icon on the header)</b><br>+ Video responses<br>That's it!
+            </div> 
+            <!-- <div class="card login cardwn">
                 <div class="card-header whatsnew">
                     <img src="http://web.archive.org/web/20060502232205im_/http://www.youtube.com/img/new_features.gif">
                 </div>
@@ -227,7 +227,7 @@
                     <a href="#" class="newstitle">Redesigned UI</a><br>
                 The site is now going to be more 2006 themed. More improvements will come soon, probably? Oh, we're adding a new player.
                 </div>
-                </div>
+                </div> -->
             <a href="https://discord.gg/rajbccdvmu"><img src="discordbanner.png"><a>
             <!-- <iframe width="300" height="300" style="border:none" src="ugc.html" name="kupbord"></iframe> -->
         </div>
