@@ -93,11 +93,17 @@
             <?php
                 if($_POST !== null) {
                     if(isset($_POST['button2'])) {
-                        $sql = "SELECT password FROM `users` WHERE username='" . htmlspecialchars($_POST['name']) .  "'";
+                        $sql = "SELECT password, deactivated FROM `users` WHERE username='" . htmlspecialchars($_POST['name']) .  "'";
                         $result = $mysqli->query($sql);
                         while($row = $result->fetch_assoc()) {
                             $hash = $row['password'];
                             if(password_verify($_POST['password'], $hash)){
+                                if ($row['deactivated'] == 1) {
+                                    echo('<script>
+                         window.location.href = "index.php?err=This account is permanently deactivated. You can no longer login.";
+                         </script>');
+                         die();
+                                }
                                 // session_start();
                                 $_SESSION["profileuser3"] = htmlspecialchars($_POST['name']);
                                 echo 'Logged in.';

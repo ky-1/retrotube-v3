@@ -122,8 +122,21 @@ error_reporting(E_ALL);
                 $join = date("F d, Y", strtotime($row["date"]));
                 $rows = getSubscribers($row['author'], $mysqli);
                 $uid = idFromUser($row['author']);
-                echo '<div class="card gray">
-                <a href="/profile.php?user=' . $row['author'] . '"><img class="user-picture" src="/pfp/'.getUserPic($uid).'"></a><div class="videoinf"><strong><a href="/profile.php?user=' . $row['author'] . '">' . $row['author'] . '</a></strong><br><span><strong>'.$rows.'</strong> subscribers</span><br><span>'.$join.'</span><br><br><strong>' . $row['views'] . '</strong> views<br><strong>' . $row['likes'] . '</strong> likes<br><br>"' . $row['description'] . '"</div><br><a href="likevideo.php?v=NSnUIxfAwv6">Like Video</a>  
+                echo '<div class="card gray">';
+                if ($_SESSION['profileuser3'] == $row['author']) {
+                                   echo "<div><a href='account.php'><img style='float: right;' src='editprofile.png'></a></div>";
+                               } else {
+                           if(isset($_SESSION['profileuser3'])) {
+                               if(ifSubscribed($_SESSION['profileuser3'], $row['author'], $mysqli) == false) {
+                              echo '<div><a href="subscribe.php?user='.$row['author'].'"><img style="float: right;" src="buttonsub.png"></a></div>';
+                              } else { 
+                               echo '<div><a href="unsubscribe.php?user='.$row['author'].'"><img style="float: right;" src="buttonunsub.png"></a></div>';
+                                } 
+                               } else {
+echo "<div><a onclick='alert('You are not logged in.')'><img style='float: right;' src='buttonsub.png'></a></div>";
+                           }
+                }
+                echo '<a href="/profile.php?user=' . $row['author'] . '"><img class="user-picture" src="/pfp/'.getUserPic($uid).'"></a><div class="videoinf"><strong><a href="/profile.php?user=' . $row['author'] . '">' . $row['author'] . '</a></strong><br><span><strong>'.$rows.'</strong> subscribers</span><br><span>'.$join.'</span><br><br><strong>' . $row['views'] . '</strong> views<br><strong>' . $row['likes'] . '</strong> likes<br><br>"' . $row['description'] . '"</div><br><a href="likevideo.php?v=NSnUIxfAwv6">Like Video</a>  
             </div>';
             }
 

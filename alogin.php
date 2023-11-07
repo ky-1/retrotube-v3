@@ -35,7 +35,7 @@
                                 }
                                 if(!empty($_POST)){
                                     $username = htmlspecialchars($_POST['name']);
-                                    $statement = $mysqli->prepare("SELECT `password`, `is_verified` FROM `users` WHERE `username` = ? LIMIT 1");
+                                    $statement = $mysqli->prepare("SELECT `password`, `is_verified`, `deactivated` FROM `users` WHERE `username` = ? LIMIT 1");
                                     $statement->bind_param("s", $username);
                                     $statement->execute();
                                     $result = $statement->get_result();
@@ -44,6 +44,12 @@
                                             $hash = $row['password'];
                                             if(!isset($row['banned'])) {
                                             if(password_verify($_POST['password'], $hash)){
+                                                if ($row['deactivated'] == 1) {
+                                                    echo('<script>
+                                         window.location.href = "index.php?err=This account is permanently deactivated. You can no longer login.";
+                                         </script>');
+                                         die();
+                                                }
                                                 session_start();
                                                 $_SESSION["profileuser3"] = htmlspecialchars($_POST['name']);
                                                 if ($row['is_verified'] == 1) {
@@ -74,7 +80,7 @@
         <div class="col-1-2">
             <h3>Thanks for making an account!</h3>
             <p>
-Welcome to Revid!
+Welcome to OldWire!
             </p>
             When you login, you can:
             <ul>

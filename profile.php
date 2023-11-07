@@ -9,9 +9,9 @@
             $result = $statement->get_result();
             while($row = $result->fetch_assoc()) {
                 if ($row['banned'] == '1') {
-                    header("Location: index.php?err=This account has been suspended by Revid staff<br/>Reason: ".$row['ban_reason']);
+                    header("Location: index.php?err=This account has been suspended by OldWire staff<br/>Reason: ".$row['ban_reason']);
               }else{
-                echo $row['username']."'s Profile - Revid";
+                echo $row['username']."'s Profile - OldWire";
               }
             }
             $statement->close();
@@ -25,11 +25,16 @@
             <div class="col-2-3">
                 <?php
                    $rows = getSubscribers($_GET['user'], $mysqli);
-                    $statement = $mysqli->prepare("SELECT `username`, `id`, `subscribers`, `is_verified` FROM `users` WHERE `username` = ? LIMIT 1");
+                    $statement = $mysqli->prepare("SELECT `username`, `id`, `subscribers`, `is_verified`, `deactivated` FROM `users` WHERE `username` = ? LIMIT 1");
                     $statement->bind_param("s", $_GET['user']);
                     $statement->execute();
                     $result = $statement->get_result();
                     while($row = $result->fetch_assoc()) {
+                        if ($row['deactivated'] == 1) {
+                            echo('<script>
+                 window.location.href = "index.php?err=This user has deactivated their account.";
+                 </script>');
+                        }
                         if ($row['is_verified'] == 1) {
                             $verified = '<a style="/*height:15px;display:inline-block;margin-top:2px !important;*/" href="help.php#verified"><img src="verified3.png" width=15px height=15px></a>';
                         } else {
