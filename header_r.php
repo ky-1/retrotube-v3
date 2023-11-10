@@ -1,49 +1,117 @@
-<div class="header2">
-        <img src="owbyc.png" width="120px">
-        <em class="slogan">testing 123<?php //echo $slogan;?></em>
-        <div class="utility"><strong>Hello, <a href="./profile.php?user=kylarz">kylarz</a></strong> <img style="margin-left:4px;" src="//revid.pw/img/mail.gif"> (<a href="#">0</a>) | <a href="alogout.php">Log Out</a> | <a href="help.php">Help</a></div>
-        <!-- <div class="utility">Welcome, <a href="#">kylarz</a>! | <a href="#">logout</a></div> -->
-        <div class="buttons"><a href="#" class="button">Home</a> <a href="#" class="button">Videos</a> <a href="#" class="button">Channels</a></div>
-    </div>
-    <style>
-        .header2 {
-    width: 750px;
-    margin: auto;
-    position: relative;
-}
-.utility {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-.slogan {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 125px;
-}
-a {
-    color: #03c !important;
-}
-.buttons {
-    position: absolute;
-    left: 0;
-    margin-left: 125px;
-    margin-top: -29px !important;
-}
-.button {
-    color: #474747 !important;
-    padding: 5px;
-    border: 1px solid lightgray;
+<header>
+	<style type="text/css">
+
+	.upload{
+			display: inline-block;
+			font-size: 14px;
+			margin: -3px 5px;
+			position: absolute;
+			right: 0;
+		}
+		.menu-element{
+			display: inline-block;
+			font-size: 14px;
+			margin: 5px;
+			position: absolute;
+			right: 0;
+		}
+		header{
+			position: relative;
+		}
+		.header-buttons{
+			margin: 0px 20%;
+		}
+		/* .header-button{
+	        cursor: pointer;
+	        color: var(--main-a);
+	        font-weight: bold;
+	        font-size: 13px;
+	        padding: 6px 33px;
+	        border-radius: 3px 3px 0 0;
+	        border: 1px solid var(--header-border);
+          background:  linear-gradient(var(--header-button-1), var(--header-button-2));
+	        border-bottom: 0px;
+	        text-align: center;
+	        margin: 0px 5px;
+	        text-decoration: none;
+	    } */
+		.header-button {
+    cursor: pointer;
+    color: var(--main-a) !important;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 6px 33px;
+    border-radius: 3px 3px 0 0;
+    border: 1px solid var(--header-border);
+    background: linear-gradient(var(--header-button-1), var(--header-button-2));
+    border-bottom: 0px;
+    text-align: center;
+    margin: 0px 4px;
     text-decoration: none;
-    background: #fefefe;
-background: -moz-linear-gradient(top,  #fefefe 0%, #cccccc 100%);
-background: -webkit-linear-gradient(top,  #fefefe 0%,#cccccc 100%);
-background: linear-gradient(to bottom,  #fefefe 0%,#cccccc 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#cccccc',GradientType=0 );
-font-weight: bold;
+    text-shadow: 1px 1px 0px white;
 }
-</style>
+.header-buttongray {
+    cursor: pointer;
+    color: var(--gray-a) !important;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 6px 33px;
+    border-radius: 3px 3px 0 0;
+    border: 1px solid var(--header-borderg);
+    background: linear-gradient(var(--header-buttong-1), var(--header-buttong-2));
+    border-bottom: 0px;
+    text-align: center;
+    margin: 0px 4px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px white;
+}
+	    .brand-logo:{
+				display: block;
+	    }
+      .lgoolol {
+      	margin-bottom: -25px;
+      }
+
+.pobygo {
+margin-bottom:-30px;
+}
+.pbg {
+margin-left: 682px;
+}
+.test {
+margin-left: -770px;
+}
+
+		.brand-logo > img{
+			content: var(--rlogo);
+		}
+	</style>
+	<a class="brand-logo" href="."><img class="lgoolol" src="revidcr.png"></a>
+	<?php
+                    $statement = $mysqli->prepare("SELECT * FROM inbox WHERE reciever = ? AND `is_read` = 0");
+                $statement->bind_param("s", $_SESSION['profileuser3']);
+                $statement->execute();
+                $result = $statement->get_result();
+                $unread = $result->num_rows;
+					?>
+	<?php
+      if(!$loggedIn) {
+        echo '<div class="menu-element"><strong><a href="./aregister.php">Sign Up</a></strong> | <a href="./alogin.php">Login</a> | <a href="./help.php">Help</a></div>';
+      } else {
+        $statement = $mysqli->prepare("SELECT * FROM users WHERE username = ? LIMIT 1");
+			    $statement->bind_param("s", $_SESSION['profileuser3']);
+			    $statement->execute();
+			    $result = $statement->get_result();
+			    if($result->num_rows === 0) exit('No rows');
+			    while($row = $result->fetch_assoc()) {
+			        /* echo "<div class=\"menu-element\"><strong>Hello, <a href=\"./profile.php?user=".$row["username"]."\">".$row["username"]."</a></strong> | <a href=\"./account.php\">Account</a> | <a href=\"./#\">History</a> | <a href=\"./help.php\">Help</a> | <a href=\"./alogout.php\">Log Out</a> | <a href=\"./#\">Site: <img src='en.png'></img></a></div>";*/
+					echo '<div class="menu-element"><strong>Hello, <a href="./profile.php?user='.$row['username'].'">'.$row['username'].'</a></strong> <img style="margin-left:4px;" src="img/mail.gif"> (<a href="/inbox">'.$unread.'</a>) | <a href="account.php">My Account</a> | <a href="#">History</a> | <a href="help.php">Help</a> | <a href="alogout.php">Log Out</a></div>';
+			    }
+			    $statement->close();
+      }
+    ?>
+
+
+	<div class="cheader">
+	    <a href="./">Home</a> | <a href="./videos.php">Videos</a> | <a href="./channels.php">Channels</a> | <a href="./community.php">Community</a> | <a href="./upload.php">Upload</a>
+	</div>

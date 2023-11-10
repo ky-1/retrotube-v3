@@ -18,6 +18,10 @@
 				    <input type="file" name="new_pic" id="new_pic">
 				</div>
 				<div class="input-group">
+				    <label for="new_bck">Set a new background: </label>
+				    <input type="file" name="new_bck" id="new_bck">
+				</div>
+				<div class="input-group">
 				    <label for="description">Description: </label>
 				    <textarea name="description" rows="4" cols="50"></textarea>
 				</div>
@@ -47,6 +51,38 @@
 						    }
 						    if($supported === true && $_FILES["new_pic"]["size"] < 5000000){
 						    	file_put_contents($target_file, file_get_contents($_FILES["new_pic"]["tmp_name"]));
+						    }
+						    else{
+						    	if(!$supported){
+						    		echo "Image not supported (jpg, png or gif)";
+						    	}
+						    	else{
+							    	echo "Image is too large";
+						    	}
+						    }
+					    }
+					    catch(Exception $e){
+					    	echo "Something happened: ".$e;
+					    }
+					}
+					if(isset($_FILES["new_bck"]) && is_uploaded_file($_FILES["new_bck"]["tmp_name"])){
+						$supportedFormats = [
+							"image/jpeg",
+							"image/png",
+							"image/gif",
+						];
+					    $uid = 0;
+					    try{
+					    	$uid = idFromUser($_SESSION["profileuser3"]);
+						    $target_file = "./background/".$uid;
+						    $supported = false;
+						    foreach($supportedFormats as $value){
+						    	if($value === mime_content_type($_FILES["new_bck"]["tmp_name"])){
+						    		$supported = true;
+						    	}
+						    }
+						    if($supported === true && $_FILES["new_bck"]["size"] < 5000000){
+						    	file_put_contents($target_file, file_get_contents($_FILES["new_bck"]["tmp_name"]));
 						    }
 						    else{
 						    	if(!$supported){

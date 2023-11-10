@@ -25,7 +25,7 @@
                         echo "";
                     }
                 ?>
-	<h2>Admin</h2>
+	<h2>Statistics</h2>
     <?php
        $sql = "SELECT COUNT(*) FROM users";
        $result = mysqli_query($mysqli, $sql);
@@ -48,6 +48,8 @@ function convert($size)
 echo 'Memory usage: ';
 echo convert(memory_get_usage(true)); // 123 kb
 ?>
+<hr>
+<h2>Moderation</h2>
     <?php include("footer.php") ?>
 </body>
 <?php $mysqli->close();?>

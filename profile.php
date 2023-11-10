@@ -8,6 +8,7 @@
             $statement->execute();
             $result = $statement->get_result();
             while($row = $result->fetch_assoc()) {
+               // $channelbackground = $row['channel_background'];
                 if ($row['banned'] == '1') {
                     header("Location: index.php?err=This account has been suspended by OldWire staff<br/>Reason: ".$row['ban_reason']);
               }else{
@@ -18,9 +19,42 @@
         ?></title>
         <link rel="stylesheet" type="text/css" href="./css/global.css">
         <link rel="stylesheet" type="text/css" href="./css/profile.css">
+        <style>
+            body {
+                background: url(/background/<?php $id = idFromUser($_GET["user"]); echo getBackground($id);?>) !important;
+            }
+            .container-flex, header {
+                background: #FFF;
+            }
+            html {
+    --card-login-1: #666;
+    --colw: #fff;
+    --colg: #999;
+    --colg-1: #666;
+    --colbl: #000;
+    --inputlol-1: #fff;
+    --colg-4: #444;
+}
+.card.login .card-header {
+    background: var(--card-login-1);
+    padding: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #FFF;
+}
+.card.login .card-content {
+    padding: 10px;
+    border: 1px solid var(--card-login-1);
+    border-top: 0px;
+    font-size: 12px;
+}
+.userinfo {
+    background-color: #e6e6e6;
+}
+            </style>
     </head>
     <body>
-        <?php include("header.php");?>
+        <?php include("header_r.php");?>
         <div class="container-flex">
             <div class="col-2-3">
                 <?php
@@ -72,7 +106,7 @@ echo "<div><a onclick='alert('You are not logged in.')'><img src='buttonsub.png'
                         <div class="video container-flex">
                                 <div class="col-1-3 video-thumbnail">
                                 <a href="watch.php?v='.$row['vid'].'">
-                                <img src="content/thumb/' . $row['thumb'] . '">
+                                <img onerror="this.src=\'comingsoon.png\'" src="content/thumb/' . $row['thumb'] . '">
                                 </a>
                                 </div>
                                 <div class="col-1-3 video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
@@ -110,12 +144,22 @@ echo "<div><a onclick='alert('You are not logged in.')'><img src='buttonsub.png'
                 $result = $statement->get_result();
                 while($row = $result->fetch_assoc()) {
                     $join = date("F d, Y", strtotime($row["date"]));
-                    echo "<div class='card message'>
+                    echo "<!--<div class='card message'>
                     <div class='card-header'>Description</div>
                     ".$row["description"]."
                     <hr>
                     &#9432; Joined ".$join."<br>&#128202;&#xFE0E; ".$totalviews." views
-                    </div>";
+                    </div>-->
+                    <div class='card login userinfo'>
+                <div class='card-header'>
+                    ".$_GET['user']."
+                </div>
+                <div class='card-content'>
+                ".$row["description"]."
+                <hr>
+                &#9432; Joined ".$join."<br>&#128202;&#xFE0E; ".$totalviews." views
+                </div>
+                </div>";
                 }
                 $statement->close();
                 ?>

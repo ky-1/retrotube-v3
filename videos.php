@@ -24,7 +24,7 @@
             <div class="vidpage-video col-generic">
                         <div class="video-thumbnail">
                             <a href="watch.php?v=' . $row['vid'] . '">
-                                <img width="120px" height="72" src="content/thumb/'.$row['vid'].'.jpg" />
+                                <img onerror="this.src=\'comingsoon.png\'" width="120px" height="72" src="content/thumb/'.$row['vid'].'.jpg" />
                             </a>
                         </div>
                         <div class="vidpage-video-info">
@@ -54,7 +54,7 @@
             <div class="vidpage-video col-generic">
                         <div class="video-thumbnail">
                             <a href="watch.php?v=' . $row['vid'] . '">
-								<img width="120px" height="72" src="content/thumb/'.$row['vid'].'.jpg" />
+								<img onerror="this.src=\'comingsoon.png\'" width="120px" height="72" src="content/thumb/'.$row['vid'].'.jpg" />
                             </a>
                         </div>
                         <div class="vidpage-video-info">
@@ -84,7 +84,7 @@
             <div class="vidpage-video col-generic">
                         <div class="video-thumbnail">
                             <a href="watch.php?v=' . $row['vid'] . '">
-                                <img width="120px" height="72" src="content/thumb/'.$row['vid'].'.jpg" />
+                                <img onerror="this.src=\'comingsoon.png\'" width="120px" height="72" src="content/thumb/'.$row['vid'].'.jpg" />
                             </a>
                         </div>
                         <div class="vidpage-video-info">

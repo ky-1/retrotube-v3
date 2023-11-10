@@ -129,7 +129,7 @@
                             <div class="video container-flex">
                                 <div class="col-1-3 video-thumbnail">
                                 <a href="watch.php?v='.$row['vid'].'">
-                                <img src="content/thumb/' . $row['thumb'] . '">
+                                <img onerror="this.src=\'comingsoon.png\'" src="content/thumb/' . $row['thumb'] . '">
                                 </a>
                                 </div>
                                 <div class="col-1-3 video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a><br><span style="font-size: 12px;">'.$row['description'].'</span></div>
