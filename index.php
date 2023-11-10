@@ -223,7 +223,7 @@
             ?>
             <div class="card message">
                 <div class="card-header">What's New</div>
-                The site has been rebranded (again, sorry). Additionally, we have mostly reverted the 2006 update. Also:<br><br>+ More header improvements<br>+ Added SubRocks 2009 player (yes, not accurate but it's all we got)<br>+ <b>Added Inbox (access by clicking the number next to the mail icon on the header)</b><br>+ Video responses<br>That's it!
+                We have made a few more changes to the site:<br><br>+ <a href="confirm_dv.php">Account deletion</a><br>+ Redesigned profiles (not Channel 1.0, but you can change channel background now)<br>+ Added Community page<br>+ Improved footer<br><br>That's it! Next: Video manager.
             </div> 
             <!-- <div class="card login cardwn">
                 <div class="card-header whatsnew">

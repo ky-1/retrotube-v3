@@ -34,7 +34,7 @@
 <meta property="twitter:player:width" content="1280">
 <meta property="twitter:player:height" content="720">
 <meta name="title" content="'.$row['videotitle'].'">
-<title>'.$row['videotitle'].' - hyperion</title> ';
+<title>'.$row['videotitle'].' - OldWire</title> ';
 }
 $statement->close();
 ?>
@@ -111,7 +111,7 @@ error_reporting(E_ALL);
         }
         ?>
 
-<div class="topRight" style="float: right; margin-left: 500px; margin-top: -397px;">
+<div class="topRight" style="float: right; margin-left: 500px; margin-top: -387px;">
         <?php
             $stmt = $mysqli->prepare("SELECT * FROM videos WHERE vid = ?");
             $stmt->bind_param("s", $_GET['v']);

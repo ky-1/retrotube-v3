@@ -82,11 +82,11 @@ margin-left: 682px;
 margin-left: -770px;
 }
 
-		/* .brand-logo > img{
+		 .brand-logo > img{
 			content: var(/--rlogo);
-		} */
+		} 
 	</style>
-	<a class="brand-logo" href="/."><img class="lgoolol" src="/owbyc.png"></a>
+	<a class="brand-logo" href="/."><img class="lgoolol" src="/owchristmas2023.png"></a>
 	<?php
                     $statement = $mysqli->prepare("SELECT * FROM inbox WHERE reciever = ? AND `is_read` = 0");
                 $statement->bind_param("s", $_SESSION['profileuser3']);

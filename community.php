@@ -8,7 +8,8 @@
 </head>
 <body>
     <?php include("header_community.php");?>
-    <strong><h2>Soon</h2></strong>
+    <iframe src="https://discord.com/widget?id=1161109237989134347&theme=light" width="800" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        <!-- <h2>OldWire Discord</h2> -->
     <hr>
 	<?php include("footer.php") ?>
 </body>
