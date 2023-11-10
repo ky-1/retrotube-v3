@@ -381,3 +381,45 @@ input{
 .cheader a {
     text-decoration: underline;
 }
+/* 2007 footer shit */
+.footColumnLeft {
+    width: 215px; 
+   padding-left: 10px;
+   margin-right: 20px;
+   border-right: 1px solid #CCC; 
+}
+.footColumnMid {
+   width: 295px;
+   margin-right: 20px;
+   border-right: 1px solid #CCC;
+}
+.footColumnRight {
+   padding-right: 10px;
+}
+.footlinks {
+   line-height: 15px !important;
+}
+.footLabel {
+   font-weight: bold;
+   font-size: 11px;
+   color: #333;
+}
+.footValues {
+   margin-left: 0px;
+   padding-bottom: 6px;
+   font-size: 11px;
+}
+.footValues .column {
+   float: left;
+   margin-right: 20px;
+}
+table a {
+       text-decoration: underline;
+}
+#footcopy {
+   margin-top: -5px;
+   padding-bottom: 15px;
+}
+#footcopy p {
+       font-size: 11px;
+}
